@@ -1,6 +1,11 @@
 The MIT License (MIT)
 
-Copyright (c) 2015 MightyPork-arm
+Contributors:
+
+Copyright (c) 2010 Michal Tomáš  - část vzorového programu
+Copyright (c) 2015 Petr Douša    - základ knihovny dle CMSIS
+Copyright (c) 2015 Ondřej Hruška - doplnění knihovny, Makefile
+
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

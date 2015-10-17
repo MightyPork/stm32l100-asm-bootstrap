@@ -1,0 +1,240 @@
+;********************************************************************************
+; SOUBOR : INI_BITS_GPIO.S
+; AUTOR  : Petr Dousa, Ondrej Hruska
+; DATUM  : 10/2015
+; POPIS  : Bitove masky ridicich registru pro GPIO (I/O brany)
+;
+; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
+;********************************************************************************
+
+
+;****************************************************************************
+;
+;                      General Purpose IOs (GPIO)
+;
+;****************************************************************************
+
+; Short pin masks. Valid for OTYPER, IDR and ODR.
+GPIO0                   EQU  0x00000001
+GPIO1                   EQU  0x00000002
+GPIO2                   EQU  0x00000004
+GPIO3                   EQU  0x00000008
+GPIO4                   EQU  0x00000010
+GPIO5                   EQU  0x00000020
+GPIO6                   EQU  0x00000040
+GPIO7                   EQU  0x00000080
+GPIO8                   EQU  0x00000100
+GPIO9                   EQU  0x00000200
+GPIO10                  EQU  0x00000400
+GPIO11                  EQU  0x00000800
+GPIO12                  EQU  0x00001000
+GPIO13                  EQU  0x00002000
+GPIO14                  EQU  0x00004000
+GPIO15                  EQU  0x00008000
+
+; OTYPER pattern masks - use as (GPIO_OTYPER_6 & GPIO_OTYPER_OD)
+GPIO_OTYPER_PP          EQU  0x00000000
+GPIO_OTYPER_OD          EQU  0xFFFFFFFF
+
+; For completenes, aliases also for OTYPER, ODR and IDR
+GPIO_OTYPER_0           EQU  0x00000001
+GPIO_OTYPER_1           EQU  0x00000002
+GPIO_OTYPER_2           EQU  0x00000004
+GPIO_OTYPER_3           EQU  0x00000008
+GPIO_OTYPER_4           EQU  0x00000010
+GPIO_OTYPER_5           EQU  0x00000020
+GPIO_OTYPER_6           EQU  0x00000040
+GPIO_OTYPER_7           EQU  0x00000080
+GPIO_OTYPER_8           EQU  0x00000100
+GPIO_OTYPER_9           EQU  0x00000200
+GPIO_OTYPER_10          EQU  0x00000400
+GPIO_OTYPER_11          EQU  0x00000800
+GPIO_OTYPER_12          EQU  0x00001000
+GPIO_OTYPER_13          EQU  0x00002000
+GPIO_OTYPER_14          EQU  0x00004000
+GPIO_OTYPER_15          EQU  0x00008000
+
+GPIO_ODR_0           EQU  0x00000001
+GPIO_ODR_1           EQU  0x00000002
+GPIO_ODR_2           EQU  0x00000004
+GPIO_ODR_3           EQU  0x00000008
+GPIO_ODR_4           EQU  0x00000010
+GPIO_ODR_5           EQU  0x00000020
+GPIO_ODR_6           EQU  0x00000040
+GPIO_ODR_7           EQU  0x00000080
+GPIO_ODR_8           EQU  0x00000100
+GPIO_ODR_9           EQU  0x00000200
+GPIO_ODR_10          EQU  0x00000400
+GPIO_ODR_11          EQU  0x00000800
+GPIO_ODR_12          EQU  0x00001000
+GPIO_ODR_13          EQU  0x00002000
+GPIO_ODR_14          EQU  0x00004000
+GPIO_ODR_15          EQU  0x00008000
+
+GPIO_IDR_0           EQU  0x00000001
+GPIO_IDR_1           EQU  0x00000002
+GPIO_IDR_2           EQU  0x00000004
+GPIO_IDR_3           EQU  0x00000008
+GPIO_IDR_4           EQU  0x00000010
+GPIO_IDR_5           EQU  0x00000020
+GPIO_IDR_6           EQU  0x00000040
+GPIO_IDR_7           EQU  0x00000080
+GPIO_IDR_8           EQU  0x00000100
+GPIO_IDR_9           EQU  0x00000200
+GPIO_IDR_10          EQU  0x00000400
+GPIO_IDR_11          EQU  0x00000800
+GPIO_IDR_12          EQU  0x00001000
+GPIO_IDR_13          EQU  0x00002000
+GPIO_IDR_14          EQU  0x00004000
+GPIO_IDR_15          EQU  0x00008000
+
+;******************  Bit definition for GPIO_MODER register  ****************
+
+; pattern masks. Use as: (GPIO_MODER_0 & GPIO_MODER_OUTPUT)
+GPIO_MODER_INPUT        EQU 0x00000000
+GPIO_MODER_OUTPUT       EQU 0x55555555
+GPIO_MODER_AF           EQU 0xAAAAAAAA
+GPIO_MODER_ANALOG       EQU 0xFFFFFFFF
+
+GPIO_MODER_0       EQU  0x00000003
+GPIO_MODER_1       EQU  0x0000000C
+GPIO_MODER_2       EQU  0x00000030
+GPIO_MODER_3       EQU  0x000000C0
+GPIO_MODER_4       EQU  0x00000300
+GPIO_MODER_5       EQU  0x00000C00
+GPIO_MODER_6       EQU  0x00003000
+GPIO_MODER_7       EQU  0x0000C000
+GPIO_MODER_8       EQU  0x00030000
+GPIO_MODER_9       EQU  0x000C0000
+GPIO_MODER_10      EQU  0x00300000
+GPIO_MODER_11      EQU  0x00C00000
+GPIO_MODER_12      EQU  0x03000000
+GPIO_MODER_13      EQU  0x0C000000
+GPIO_MODER_14      EQU  0x30000000
+GPIO_MODER_15      EQU  0xC0000000
+
+
+;******************  Bit definition for GPIO_OSPEEDR register  **************
+
+; pattern masks. Use as: (GPIO_OSPEEDR_2 & GPIO_OSPEEDR_LOW)
+GPIO_OSPEEDR_LOW          EQU 0x00000000
+GPIO_OSPEEDR_MEDIUM       EQU 0x55555555
+GPIO_OSPEEDR_HIGH         EQU 0xFFFFFFFF
+
+GPIO_OSPEEDR_0    EQU  (0x00000003)
+GPIO_OSPEEDR_1    EQU  (0x0000000C)
+GPIO_OSPEEDR_2    EQU  (0x00000030)
+GPIO_OSPEEDR_3    EQU  (0x000000C0)
+GPIO_OSPEEDR_4    EQU  (0x00000300)
+GPIO_OSPEEDR_5    EQU  (0x00000C00)
+GPIO_OSPEEDR_6    EQU  (0x00003000)
+GPIO_OSPEEDR_7    EQU  (0x0000C000)
+GPIO_OSPEEDR_8    EQU  (0x00030000)
+GPIO_OSPEEDR_9    EQU  (0x000C0000)
+GPIO_OSPEEDR_10   EQU  (0x00300000)
+GPIO_OSPEEDR_11   EQU  (0x00C00000)
+GPIO_OSPEEDR_12   EQU  (0x03000000)
+GPIO_OSPEEDR_13   EQU  (0x0C000000)
+GPIO_OSPEEDR_14   EQU  (0x30000000)
+GPIO_OSPEEDR_15   EQU  (0xC0000000)
+
+;******************  Bit definition for GPIO_PUPDR register  ****************
+
+; pattern masks. Use as: (GPIO_PUPDR_6 & GPIO_PUPDR_UP)
+GPIO_PUPDR_NONE        EQU 0x00000000
+GPIO_PUPDR_UP          EQU 0x55555555
+GPIO_PUPDR_DOWN        EQU 0xAAAAAAAA
+
+GPIO_PUPDR_0    EQU  (0x00000003)
+GPIO_PUPDR_1    EQU  (0x0000000C)
+GPIO_PUPDR_2    EQU  (0x00000030)
+GPIO_PUPDR_3    EQU  (0x000000C0)
+GPIO_PUPDR_4    EQU  (0x00000300)
+GPIO_PUPDR_5    EQU  (0x00000C00)
+GPIO_PUPDR_6    EQU  (0x00003000)
+GPIO_PUPDR_7    EQU  (0x0000C000)
+GPIO_PUPDR_8    EQU  (0x00030000)
+GPIO_PUPDR_9    EQU  (0x000C0000)
+GPIO_PUPDR_10   EQU  (0x00300000)
+GPIO_PUPDR_11   EQU  (0x00C00000)
+GPIO_PUPDR_12   EQU  (0x03000000)
+GPIO_PUPDR_13   EQU  (0x0C000000)
+GPIO_PUPDR_14   EQU  (0x30000000)
+GPIO_PUPDR_15   EQU  (0xC0000000)
+
+
+;******************  Bit definition for GPIO_BSRR register  *****************
+GPIO_BSRR_BS_0          EQU  (0x00000001)
+GPIO_BSRR_BS_1          EQU  (0x00000002)
+GPIO_BSRR_BS_2          EQU  (0x00000004)
+GPIO_BSRR_BS_3          EQU  (0x00000008)
+GPIO_BSRR_BS_4          EQU  (0x00000010)
+GPIO_BSRR_BS_5          EQU  (0x00000020)
+GPIO_BSRR_BS_6          EQU  (0x00000040)
+GPIO_BSRR_BS_7          EQU  (0x00000080)
+GPIO_BSRR_BS_8          EQU  (0x00000100)
+GPIO_BSRR_BS_9          EQU  (0x00000200)
+GPIO_BSRR_BS_10         EQU  (0x00000400)
+GPIO_BSRR_BS_11         EQU  (0x00000800)
+GPIO_BSRR_BS_12         EQU  (0x00001000)
+GPIO_BSRR_BS_13         EQU  (0x00002000)
+GPIO_BSRR_BS_14         EQU  (0x00004000)
+GPIO_BSRR_BS_15         EQU  (0x00008000)
+
+GPIO_BSRR_BR_0          EQU  (0x00010000)
+GPIO_BSRR_BR_1          EQU  (0x00020000)
+GPIO_BSRR_BR_2          EQU  (0x00040000)
+GPIO_BSRR_BR_3          EQU  (0x00080000)
+GPIO_BSRR_BR_4          EQU  (0x00100000)
+GPIO_BSRR_BR_5          EQU  (0x00200000)
+GPIO_BSRR_BR_6          EQU  (0x00400000)
+GPIO_BSRR_BR_7          EQU  (0x00800000)
+GPIO_BSRR_BR_8          EQU  (0x01000000)
+GPIO_BSRR_BR_9          EQU  (0x02000000)
+GPIO_BSRR_BR_10         EQU  (0x04000000)
+GPIO_BSRR_BR_11         EQU  (0x08000000)
+GPIO_BSRR_BR_12         EQU  (0x10000000)
+GPIO_BSRR_BR_13         EQU  (0x20000000)
+GPIO_BSRR_BR_14         EQU  (0x40000000)
+GPIO_BSRR_BR_15         EQU  (0x80000000)
+
+;******************  Bit definition for GPIO_LCKR register  *****************
+GPIO_LCKR_0          EQU  (0x00000001)
+GPIO_LCKR_1          EQU  (0x00000002)
+GPIO_LCKR_2          EQU  (0x00000004)
+GPIO_LCKR_3          EQU  (0x00000008)
+GPIO_LCKR_4          EQU  (0x00000010)
+GPIO_LCKR_5          EQU  (0x00000020)
+GPIO_LCKR_6          EQU  (0x00000040)
+GPIO_LCKR_7          EQU  (0x00000080)
+GPIO_LCKR_8          EQU  (0x00000100)
+GPIO_LCKR_9          EQU  (0x00000200)
+GPIO_LCKR_10         EQU  (0x00000400)
+GPIO_LCKR_11         EQU  (0x00000800)
+GPIO_LCKR_12         EQU  (0x00001000)
+GPIO_LCKR_13         EQU  (0x00002000)
+GPIO_LCKR_14         EQU  (0x00004000)
+GPIO_LCKR_15         EQU  (0x00008000)
+GPIO_LCKR_K          EQU  (0x00010000)
+
+;******************  Bit definition for GPIO_AFRL register  *****************
+GPIO_AFRL_0         EQU  (0x0000000F)
+GPIO_AFRL_1         EQU  (0x000000F0)
+GPIO_AFRL_2         EQU  (0x00000F00)
+GPIO_AFRL_3         EQU  (0x0000F000)
+GPIO_AFRL_4         EQU  (0x000F0000)
+GPIO_AFRL_5         EQU  (0x00F00000)
+GPIO_AFRL_6         EQU  (0x0F000000)
+GPIO_AFRL_7         EQU  (0xF0000000)
+
+;******************  Bit definition for GPIO_AFRH register  *****************
+GPIO_AFRH_8         EQU  (0x0000000F)
+GPIO_AFRH_9         EQU  (0x000000F0)
+GPIO_AFRH_10        EQU  (0x00000F00)
+GPIO_AFRH_11        EQU  (0x0000F000)
+GPIO_AFRH_12        EQU  (0x000F0000)
+GPIO_AFRH_13        EQU  (0x00F00000)
+GPIO_AFRH_14        EQU  (0x0F000000)
+GPIO_AFRH_15        EQU  (0xF0000000)
+
+	END

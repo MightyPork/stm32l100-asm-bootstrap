@@ -1,0 +1,24 @@
+# Temporary files
+
+*.bak
+*.lnp
+*.iex
+*.hex
+*.elf
+*.axf
+*.htm
+*.lnp
+*.lst
+*.plg
+*.tra
+*.o
+*.map
+*.d
+*.dep
+*.disasm
+*.bin
+
+# Backup files
+
+*.bak
+*~

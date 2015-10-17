@@ -1,0 +1,533 @@
+;********************************************************************************
+; SOUBOR : INI_BB.S
+; AUTOR  : Ondrej Hruska
+; DATUM  : 10/2015
+; POPIS  : Adresy bit-bandingovych registru
+;
+; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
+;********************************************************************************
+
+
+; ======================== GPIO BITS ===========================
+
+; ---------------------- IDR ----------------------
+
+; IDR A
+_BB_GPIOA_IDR          EQU  PERIPH_BB_BASE + (GPIOA_IDR - PERIPH_BASE) * 32
+
+BB_GPIOA_IDR_0         EQU  _BB_GPIOA_IDR + (4 * 0)
+BB_GPIOA_IDR_1         EQU  _BB_GPIOA_IDR + (4 * 1)
+BB_GPIOA_IDR_2         EQU  _BB_GPIOA_IDR + (4 * 2)
+BB_GPIOA_IDR_3         EQU  _BB_GPIOA_IDR + (4 * 3)
+BB_GPIOA_IDR_4         EQU  _BB_GPIOA_IDR + (4 * 4)
+BB_GPIOA_IDR_5         EQU  _BB_GPIOA_IDR + (4 * 5)
+BB_GPIOA_IDR_6         EQU  _BB_GPIOA_IDR + (4 * 6)
+BB_GPIOA_IDR_7         EQU  _BB_GPIOA_IDR + (4 * 7)
+BB_GPIOA_IDR_8         EQU  _BB_GPIOA_IDR + (4 * 8)
+BB_GPIOA_IDR_9         EQU  _BB_GPIOA_IDR + (4 * 9)
+BB_GPIOA_IDR_10        EQU  _BB_GPIOA_IDR + (4 * 10)
+BB_GPIOA_IDR_11        EQU  _BB_GPIOA_IDR + (4 * 11)
+BB_GPIOA_IDR_12        EQU  _BB_GPIOA_IDR + (4 * 12)
+BB_GPIOA_IDR_13        EQU  _BB_GPIOA_IDR + (4 * 13)
+BB_GPIOA_IDR_14        EQU  _BB_GPIOA_IDR + (4 * 14)
+BB_GPIOA_IDR_15        EQU  _BB_GPIOA_IDR + (4 * 15)
+
+
+; IDR B
+_BB_GPIOB_IDR          EQU  PERIPH_BB_BASE + (GPIOB_IDR - PERIPH_BASE) * 32
+
+BB_GPIOB_IDR_0         EQU  _BB_GPIOB_IDR + (4 * 0)
+BB_GPIOB_IDR_1         EQU  _BB_GPIOB_IDR + (4 * 1)
+BB_GPIOB_IDR_2         EQU  _BB_GPIOB_IDR + (4 * 2)
+BB_GPIOB_IDR_3         EQU  _BB_GPIOB_IDR + (4 * 3)
+BB_GPIOB_IDR_4         EQU  _BB_GPIOB_IDR + (4 * 4)
+BB_GPIOB_IDR_5         EQU  _BB_GPIOB_IDR + (4 * 5)
+BB_GPIOB_IDR_6         EQU  _BB_GPIOB_IDR + (4 * 6)
+BB_GPIOB_IDR_7         EQU  _BB_GPIOB_IDR + (4 * 7)
+BB_GPIOB_IDR_8         EQU  _BB_GPIOB_IDR + (4 * 8)
+BB_GPIOB_IDR_9         EQU  _BB_GPIOB_IDR + (4 * 9)
+BB_GPIOB_IDR_10        EQU  _BB_GPIOB_IDR + (4 * 10)
+BB_GPIOB_IDR_11        EQU  _BB_GPIOB_IDR + (4 * 11)
+BB_GPIOB_IDR_12        EQU  _BB_GPIOB_IDR + (4 * 12)
+BB_GPIOB_IDR_13        EQU  _BB_GPIOB_IDR + (4 * 13)
+BB_GPIOB_IDR_14        EQU  _BB_GPIOB_IDR + (4 * 14)
+BB_GPIOB_IDR_15        EQU  _BB_GPIOB_IDR + (4 * 15)
+
+
+; IDR C
+_BB_GPIOC_IDR          EQU  PERIPH_BB_BASE + (GPIOC_IDR - PERIPH_BASE) * 32
+
+BB_GPIOC_IDR_0         EQU  _BB_GPIOC_IDR + (4 * 0)
+BB_GPIOC_IDR_1         EQU  _BB_GPIOC_IDR + (4 * 1)
+BB_GPIOC_IDR_2         EQU  _BB_GPIOC_IDR + (4 * 2)
+BB_GPIOC_IDR_3         EQU  _BB_GPIOC_IDR + (4 * 3)
+BB_GPIOC_IDR_4         EQU  _BB_GPIOC_IDR + (4 * 4)
+BB_GPIOC_IDR_5         EQU  _BB_GPIOC_IDR + (4 * 5)
+BB_GPIOC_IDR_6         EQU  _BB_GPIOC_IDR + (4 * 6)
+BB_GPIOC_IDR_7         EQU  _BB_GPIOC_IDR + (4 * 7)
+BB_GPIOC_IDR_8         EQU  _BB_GPIOC_IDR + (4 * 8)
+BB_GPIOC_IDR_9         EQU  _BB_GPIOC_IDR + (4 * 9)
+BB_GPIOC_IDR_10        EQU  _BB_GPIOC_IDR + (4 * 10)
+BB_GPIOC_IDR_11        EQU  _BB_GPIOC_IDR + (4 * 11)
+BB_GPIOC_IDR_12        EQU  _BB_GPIOC_IDR + (4 * 12)
+BB_GPIOC_IDR_13        EQU  _BB_GPIOC_IDR + (4 * 13)
+BB_GPIOC_IDR_14        EQU  _BB_GPIOC_IDR + (4 * 14)
+BB_GPIOC_IDR_15        EQU  _BB_GPIOC_IDR + (4 * 15)
+
+
+
+; IDR D
+_BB_GPIOD_IDR          EQU  PERIPH_BB_BASE + (GPIOD_IDR - PERIPH_BASE) * 32
+
+BB_GPIOD_IDR_0         EQU  _BB_GPIOD_IDR + (4 * 0)
+BB_GPIOD_IDR_1         EQU  _BB_GPIOD_IDR + (4 * 1)
+BB_GPIOD_IDR_2         EQU  _BB_GPIOD_IDR + (4 * 2)
+BB_GPIOD_IDR_3         EQU  _BB_GPIOD_IDR + (4 * 3)
+BB_GPIOD_IDR_4         EQU  _BB_GPIOD_IDR + (4 * 4)
+BB_GPIOD_IDR_5         EQU  _BB_GPIOD_IDR + (4 * 5)
+BB_GPIOD_IDR_6         EQU  _BB_GPIOD_IDR + (4 * 6)
+BB_GPIOD_IDR_7         EQU  _BB_GPIOD_IDR + (4 * 7)
+BB_GPIOD_IDR_8         EQU  _BB_GPIOD_IDR + (4 * 8)
+BB_GPIOD_IDR_9         EQU  _BB_GPIOD_IDR + (4 * 9)
+BB_GPIOD_IDR_10        EQU  _BB_GPIOD_IDR + (4 * 10)
+BB_GPIOD_IDR_11        EQU  _BB_GPIOD_IDR + (4 * 11)
+BB_GPIOD_IDR_12        EQU  _BB_GPIOD_IDR + (4 * 12)
+BB_GPIOD_IDR_13        EQU  _BB_GPIOD_IDR + (4 * 13)
+BB_GPIOD_IDR_14        EQU  _BB_GPIOD_IDR + (4 * 14)
+BB_GPIOD_IDR_15        EQU  _BB_GPIOD_IDR + (4 * 15)
+
+
+; IDR E
+_BB_GPIOE_IDR          EQU  PERIPH_BB_BASE + (GPIOE_IDR - PERIPH_BASE) * 32
+
+BB_GPIOE_IDR_0         EQU  _BB_GPIOE_IDR + (4 * 0)
+BB_GPIOE_IDR_1         EQU  _BB_GPIOE_IDR + (4 * 1)
+BB_GPIOE_IDR_2         EQU  _BB_GPIOE_IDR + (4 * 2)
+BB_GPIOE_IDR_3         EQU  _BB_GPIOE_IDR + (4 * 3)
+BB_GPIOE_IDR_4         EQU  _BB_GPIOE_IDR + (4 * 4)
+BB_GPIOE_IDR_5         EQU  _BB_GPIOE_IDR + (4 * 5)
+BB_GPIOE_IDR_6         EQU  _BB_GPIOE_IDR + (4 * 6)
+BB_GPIOE_IDR_7         EQU  _BB_GPIOE_IDR + (4 * 7)
+BB_GPIOE_IDR_8         EQU  _BB_GPIOE_IDR + (4 * 8)
+BB_GPIOE_IDR_9         EQU  _BB_GPIOE_IDR + (4 * 9)
+BB_GPIOE_IDR_10        EQU  _BB_GPIOE_IDR + (4 * 10)
+BB_GPIOE_IDR_11        EQU  _BB_GPIOE_IDR + (4 * 11)
+BB_GPIOE_IDR_12        EQU  _BB_GPIOE_IDR + (4 * 12)
+BB_GPIOE_IDR_13        EQU  _BB_GPIOE_IDR + (4 * 13)
+BB_GPIOE_IDR_14        EQU  _BB_GPIOE_IDR + (4 * 14)
+BB_GPIOE_IDR_15        EQU  _BB_GPIOE_IDR + (4 * 15)
+
+
+; IDR F
+_BB_GPIOF_IDR          EQU  PERIPH_BB_BASE + (GPIOF_IDR - PERIPH_BASE) * 32
+
+BB_GPIOF_IDR_0         EQU  _BB_GPIOF_IDR + (4 * 0)
+BB_GPIOF_IDR_1         EQU  _BB_GPIOF_IDR + (4 * 1)
+BB_GPIOF_IDR_2         EQU  _BB_GPIOF_IDR + (4 * 2)
+BB_GPIOF_IDR_3         EQU  _BB_GPIOF_IDR + (4 * 3)
+BB_GPIOF_IDR_4         EQU  _BB_GPIOF_IDR + (4 * 4)
+BB_GPIOF_IDR_5         EQU  _BB_GPIOF_IDR + (4 * 5)
+BB_GPIOF_IDR_6         EQU  _BB_GPIOF_IDR + (4 * 6)
+BB_GPIOF_IDR_7         EQU  _BB_GPIOF_IDR + (4 * 7)
+BB_GPIOF_IDR_8         EQU  _BB_GPIOF_IDR + (4 * 8)
+BB_GPIOF_IDR_9         EQU  _BB_GPIOF_IDR + (4 * 9)
+BB_GPIOF_IDR_10        EQU  _BB_GPIOF_IDR + (4 * 10)
+BB_GPIOF_IDR_11        EQU  _BB_GPIOF_IDR + (4 * 11)
+BB_GPIOF_IDR_12        EQU  _BB_GPIOF_IDR + (4 * 12)
+BB_GPIOF_IDR_13        EQU  _BB_GPIOF_IDR + (4 * 13)
+BB_GPIOF_IDR_14        EQU  _BB_GPIOF_IDR + (4 * 14)
+BB_GPIOF_IDR_15        EQU  _BB_GPIOF_IDR + (4 * 15)
+
+
+; IDR G
+_BB_GPIOG_IDR          EQU  PERIPH_BB_BASE + (GPIOG_IDR - PERIPH_BASE) * 32
+
+BB_GPIOG_IDR_0         EQU  _BB_GPIOG_IDR + (4 * 0)
+BB_GPIOG_IDR_1         EQU  _BB_GPIOG_IDR + (4 * 1)
+BB_GPIOG_IDR_2         EQU  _BB_GPIOG_IDR + (4 * 2)
+BB_GPIOG_IDR_3         EQU  _BB_GPIOG_IDR + (4 * 3)
+BB_GPIOG_IDR_4         EQU  _BB_GPIOG_IDR + (4 * 4)
+BB_GPIOG_IDR_5         EQU  _BB_GPIOG_IDR + (4 * 5)
+BB_GPIOG_IDR_6         EQU  _BB_GPIOG_IDR + (4 * 6)
+BB_GPIOG_IDR_7         EQU  _BB_GPIOG_IDR + (4 * 7)
+BB_GPIOG_IDR_8         EQU  _BB_GPIOG_IDR + (4 * 8)
+BB_GPIOG_IDR_9         EQU  _BB_GPIOG_IDR + (4 * 9)
+BB_GPIOG_IDR_10        EQU  _BB_GPIOG_IDR + (4 * 10)
+BB_GPIOG_IDR_11        EQU  _BB_GPIOG_IDR + (4 * 11)
+BB_GPIOG_IDR_12        EQU  _BB_GPIOG_IDR + (4 * 12)
+BB_GPIOG_IDR_13        EQU  _BB_GPIOG_IDR + (4 * 13)
+BB_GPIOG_IDR_14        EQU  _BB_GPIOG_IDR + (4 * 14)
+BB_GPIOG_IDR_15        EQU  _BB_GPIOG_IDR + (4 * 15)
+
+
+; IDR H
+_BB_GPIOH_IDR          EQU  PERIPH_BB_BASE + (GPIOH_IDR - PERIPH_BASE) * 32
+
+BB_GPIOH_IDR_0         EQU  _BB_GPIOH_IDR + (4 * 0)
+BB_GPIOH_IDR_1         EQU  _BB_GPIOH_IDR + (4 * 1)
+BB_GPIOH_IDR_2         EQU  _BB_GPIOH_IDR + (4 * 2)
+BB_GPIOH_IDR_3         EQU  _BB_GPIOH_IDR + (4 * 3)
+BB_GPIOH_IDR_4         EQU  _BB_GPIOH_IDR + (4 * 4)
+BB_GPIOH_IDR_5         EQU  _BB_GPIOH_IDR + (4 * 5)
+BB_GPIOH_IDR_6         EQU  _BB_GPIOH_IDR + (4 * 6)
+BB_GPIOH_IDR_7         EQU  _BB_GPIOH_IDR + (4 * 7)
+BB_GPIOH_IDR_8         EQU  _BB_GPIOH_IDR + (4 * 8)
+BB_GPIOH_IDR_9         EQU  _BB_GPIOH_IDR + (4 * 9)
+BB_GPIOH_IDR_10        EQU  _BB_GPIOH_IDR + (4 * 10)
+BB_GPIOH_IDR_11        EQU  _BB_GPIOH_IDR + (4 * 11)
+BB_GPIOH_IDR_12        EQU  _BB_GPIOH_IDR + (4 * 12)
+BB_GPIOH_IDR_13        EQU  _BB_GPIOH_IDR + (4 * 13)
+BB_GPIOH_IDR_14        EQU  _BB_GPIOH_IDR + (4 * 14)
+BB_GPIOH_IDR_15        EQU  _BB_GPIOH_IDR + (4 * 15)
+
+
+; ------------------ ODR ---------------------
+
+
+; ODR A
+_BB_GPIOA_ODR          EQU  PERIPH_BB_BASE + (GPIOA_ODR - PERIPH_BASE) * 32
+
+BB_GPIOA_ODR_0         EQU  _BB_GPIOA_ODR + (4 * 0)
+BB_GPIOA_ODR_1         EQU  _BB_GPIOA_ODR + (4 * 1)
+BB_GPIOA_ODR_2         EQU  _BB_GPIOA_ODR + (4 * 2)
+BB_GPIOA_ODR_3         EQU  _BB_GPIOA_ODR + (4 * 3)
+BB_GPIOA_ODR_4         EQU  _BB_GPIOA_ODR + (4 * 4)
+BB_GPIOA_ODR_5         EQU  _BB_GPIOA_ODR + (4 * 5)
+BB_GPIOA_ODR_6         EQU  _BB_GPIOA_ODR + (4 * 6)
+BB_GPIOA_ODR_7         EQU  _BB_GPIOA_ODR + (4 * 7)
+BB_GPIOA_ODR_8         EQU  _BB_GPIOA_ODR + (4 * 8)
+BB_GPIOA_ODR_9         EQU  _BB_GPIOA_ODR + (4 * 9)
+BB_GPIOA_ODR_10        EQU  _BB_GPIOA_ODR + (4 * 10)
+BB_GPIOA_ODR_11        EQU  _BB_GPIOA_ODR + (4 * 11)
+BB_GPIOA_ODR_12        EQU  _BB_GPIOA_ODR + (4 * 12)
+BB_GPIOA_ODR_13        EQU  _BB_GPIOA_ODR + (4 * 13)
+BB_GPIOA_ODR_14        EQU  _BB_GPIOA_ODR + (4 * 14)
+BB_GPIOA_ODR_15        EQU  _BB_GPIOA_ODR + (4 * 15)
+
+
+; ODR B
+_BB_GPIOB_ODR          EQU  PERIPH_BB_BASE + (GPIOB_ODR - PERIPH_BASE) * 32
+
+BB_GPIOB_ODR_0         EQU  _BB_GPIOB_ODR + (4 * 0)
+BB_GPIOB_ODR_1         EQU  _BB_GPIOB_ODR + (4 * 1)
+BB_GPIOB_ODR_2         EQU  _BB_GPIOB_ODR + (4 * 2)
+BB_GPIOB_ODR_3         EQU  _BB_GPIOB_ODR + (4 * 3)
+BB_GPIOB_ODR_4         EQU  _BB_GPIOB_ODR + (4 * 4)
+BB_GPIOB_ODR_5         EQU  _BB_GPIOB_ODR + (4 * 5)
+BB_GPIOB_ODR_6         EQU  _BB_GPIOB_ODR + (4 * 6)
+BB_GPIOB_ODR_7         EQU  _BB_GPIOB_ODR + (4 * 7)
+BB_GPIOB_ODR_8         EQU  _BB_GPIOB_ODR + (4 * 8)
+BB_GPIOB_ODR_9         EQU  _BB_GPIOB_ODR + (4 * 9)
+BB_GPIOB_ODR_10        EQU  _BB_GPIOB_ODR + (4 * 10)
+BB_GPIOB_ODR_11        EQU  _BB_GPIOB_ODR + (4 * 11)
+BB_GPIOB_ODR_12        EQU  _BB_GPIOB_ODR + (4 * 12)
+BB_GPIOB_ODR_13        EQU  _BB_GPIOB_ODR + (4 * 13)
+BB_GPIOB_ODR_14        EQU  _BB_GPIOB_ODR + (4 * 14)
+BB_GPIOB_ODR_15        EQU  _BB_GPIOB_ODR + (4 * 15)
+
+
+; ODR C
+_BB_GPIOC_ODR          EQU  PERIPH_BB_BASE + (GPIOC_ODR - PERIPH_BASE) * 32
+
+BB_GPIOC_ODR_0         EQU  _BB_GPIOC_ODR + (4 * 0)
+BB_GPIOC_ODR_1         EQU  _BB_GPIOC_ODR + (4 * 1)
+BB_GPIOC_ODR_2         EQU  _BB_GPIOC_ODR + (4 * 2)
+BB_GPIOC_ODR_3         EQU  _BB_GPIOC_ODR + (4 * 3)
+BB_GPIOC_ODR_4         EQU  _BB_GPIOC_ODR + (4 * 4)
+BB_GPIOC_ODR_5         EQU  _BB_GPIOC_ODR + (4 * 5)
+BB_GPIOC_ODR_6         EQU  _BB_GPIOC_ODR + (4 * 6)
+BB_GPIOC_ODR_7         EQU  _BB_GPIOC_ODR + (4 * 7)
+BB_GPIOC_ODR_8         EQU  _BB_GPIOC_ODR + (4 * 8)
+BB_GPIOC_ODR_9         EQU  _BB_GPIOC_ODR + (4 * 9)
+BB_GPIOC_ODR_10        EQU  _BB_GPIOC_ODR + (4 * 10)
+BB_GPIOC_ODR_11        EQU  _BB_GPIOC_ODR + (4 * 11)
+BB_GPIOC_ODR_12        EQU  _BB_GPIOC_ODR + (4 * 12)
+BB_GPIOC_ODR_13        EQU  _BB_GPIOC_ODR + (4 * 13)
+BB_GPIOC_ODR_14        EQU  _BB_GPIOC_ODR + (4 * 14)
+BB_GPIOC_ODR_15        EQU  _BB_GPIOC_ODR + (4 * 15)
+
+
+
+; ODR D
+_BB_GPIOD_ODR          EQU  PERIPH_BB_BASE + (GPIOD_ODR - PERIPH_BASE) * 32
+
+BB_GPIOD_ODR_0         EQU  _BB_GPIOD_ODR + (4 * 0)
+BB_GPIOD_ODR_1         EQU  _BB_GPIOD_ODR + (4 * 1)
+BB_GPIOD_ODR_2         EQU  _BB_GPIOD_ODR + (4 * 2)
+BB_GPIOD_ODR_3         EQU  _BB_GPIOD_ODR + (4 * 3)
+BB_GPIOD_ODR_4         EQU  _BB_GPIOD_ODR + (4 * 4)
+BB_GPIOD_ODR_5         EQU  _BB_GPIOD_ODR + (4 * 5)
+BB_GPIOD_ODR_6         EQU  _BB_GPIOD_ODR + (4 * 6)
+BB_GPIOD_ODR_7         EQU  _BB_GPIOD_ODR + (4 * 7)
+BB_GPIOD_ODR_8         EQU  _BB_GPIOD_ODR + (4 * 8)
+BB_GPIOD_ODR_9         EQU  _BB_GPIOD_ODR + (4 * 9)
+BB_GPIOD_ODR_10        EQU  _BB_GPIOD_ODR + (4 * 10)
+BB_GPIOD_ODR_11        EQU  _BB_GPIOD_ODR + (4 * 11)
+BB_GPIOD_ODR_12        EQU  _BB_GPIOD_ODR + (4 * 12)
+BB_GPIOD_ODR_13        EQU  _BB_GPIOD_ODR + (4 * 13)
+BB_GPIOD_ODR_14        EQU  _BB_GPIOD_ODR + (4 * 14)
+BB_GPIOD_ODR_15        EQU  _BB_GPIOD_ODR + (4 * 15)
+
+
+; ODR E
+_BB_GPIOE_ODR          EQU  PERIPH_BB_BASE + (GPIOE_ODR - PERIPH_BASE) * 32
+
+BB_GPIOE_ODR_0         EQU  _BB_GPIOE_ODR + (4 * 0)
+BB_GPIOE_ODR_1         EQU  _BB_GPIOE_ODR + (4 * 1)
+BB_GPIOE_ODR_2         EQU  _BB_GPIOE_ODR + (4 * 2)
+BB_GPIOE_ODR_3         EQU  _BB_GPIOE_ODR + (4 * 3)
+BB_GPIOE_ODR_4         EQU  _BB_GPIOE_ODR + (4 * 4)
+BB_GPIOE_ODR_5         EQU  _BB_GPIOE_ODR + (4 * 5)
+BB_GPIOE_ODR_6         EQU  _BB_GPIOE_ODR + (4 * 6)
+BB_GPIOE_ODR_7         EQU  _BB_GPIOE_ODR + (4 * 7)
+BB_GPIOE_ODR_8         EQU  _BB_GPIOE_ODR + (4 * 8)
+BB_GPIOE_ODR_9         EQU  _BB_GPIOE_ODR + (4 * 9)
+BB_GPIOE_ODR_10        EQU  _BB_GPIOE_ODR + (4 * 10)
+BB_GPIOE_ODR_11        EQU  _BB_GPIOE_ODR + (4 * 11)
+BB_GPIOE_ODR_12        EQU  _BB_GPIOE_ODR + (4 * 12)
+BB_GPIOE_ODR_13        EQU  _BB_GPIOE_ODR + (4 * 13)
+BB_GPIOE_ODR_14        EQU  _BB_GPIOE_ODR + (4 * 14)
+BB_GPIOE_ODR_15        EQU  _BB_GPIOE_ODR + (4 * 15)
+
+
+; ODR F
+_BB_GPIOF_ODR          EQU  PERIPH_BB_BASE + (GPIOF_ODR - PERIPH_BASE) * 32
+
+BB_GPIOF_ODR_0         EQU  _BB_GPIOF_ODR + (4 * 0)
+BB_GPIOF_ODR_1         EQU  _BB_GPIOF_ODR + (4 * 1)
+BB_GPIOF_ODR_2         EQU  _BB_GPIOF_ODR + (4 * 2)
+BB_GPIOF_ODR_3         EQU  _BB_GPIOF_ODR + (4 * 3)
+BB_GPIOF_ODR_4         EQU  _BB_GPIOF_ODR + (4 * 4)
+BB_GPIOF_ODR_5         EQU  _BB_GPIOF_ODR + (4 * 5)
+BB_GPIOF_ODR_6         EQU  _BB_GPIOF_ODR + (4 * 6)
+BB_GPIOF_ODR_7         EQU  _BB_GPIOF_ODR + (4 * 7)
+BB_GPIOF_ODR_8         EQU  _BB_GPIOF_ODR + (4 * 8)
+BB_GPIOF_ODR_9         EQU  _BB_GPIOF_ODR + (4 * 9)
+BB_GPIOF_ODR_10        EQU  _BB_GPIOF_ODR + (4 * 10)
+BB_GPIOF_ODR_11        EQU  _BB_GPIOF_ODR + (4 * 11)
+BB_GPIOF_ODR_12        EQU  _BB_GPIOF_ODR + (4 * 12)
+BB_GPIOF_ODR_13        EQU  _BB_GPIOF_ODR + (4 * 13)
+BB_GPIOF_ODR_14        EQU  _BB_GPIOF_ODR + (4 * 14)
+BB_GPIOF_ODR_15        EQU  _BB_GPIOF_ODR + (4 * 15)
+
+
+; ODR G
+_BB_GPIOG_ODR          EQU  PERIPH_BB_BASE + (GPIOG_ODR - PERIPH_BASE) * 32
+
+BB_GPIOG_ODR_0         EQU  _BB_GPIOG_ODR + (4 * 0)
+BB_GPIOG_ODR_1         EQU  _BB_GPIOG_ODR + (4 * 1)
+BB_GPIOG_ODR_2         EQU  _BB_GPIOG_ODR + (4 * 2)
+BB_GPIOG_ODR_3         EQU  _BB_GPIOG_ODR + (4 * 3)
+BB_GPIOG_ODR_4         EQU  _BB_GPIOG_ODR + (4 * 4)
+BB_GPIOG_ODR_5         EQU  _BB_GPIOG_ODR + (4 * 5)
+BB_GPIOG_ODR_6         EQU  _BB_GPIOG_ODR + (4 * 6)
+BB_GPIOG_ODR_7         EQU  _BB_GPIOG_ODR + (4 * 7)
+BB_GPIOG_ODR_8         EQU  _BB_GPIOG_ODR + (4 * 8)
+BB_GPIOG_ODR_9         EQU  _BB_GPIOG_ODR + (4 * 9)
+BB_GPIOG_ODR_10        EQU  _BB_GPIOG_ODR + (4 * 10)
+BB_GPIOG_ODR_11        EQU  _BB_GPIOG_ODR + (4 * 11)
+BB_GPIOG_ODR_12        EQU  _BB_GPIOG_ODR + (4 * 12)
+BB_GPIOG_ODR_13        EQU  _BB_GPIOG_ODR + (4 * 13)
+BB_GPIOG_ODR_14        EQU  _BB_GPIOG_ODR + (4 * 14)
+BB_GPIOG_ODR_15        EQU  _BB_GPIOG_ODR + (4 * 15)
+
+
+; ODR H
+_BB_GPIOH_ODR          EQU  PERIPH_BB_BASE + (GPIOH_ODR - PERIPH_BASE) * 32
+
+BB_GPIOH_ODR_0         EQU  _BB_GPIOH_ODR + (4 * 0)
+BB_GPIOH_ODR_1         EQU  _BB_GPIOH_ODR + (4 * 1)
+BB_GPIOH_ODR_2         EQU  _BB_GPIOH_ODR + (4 * 2)
+BB_GPIOH_ODR_3         EQU  _BB_GPIOH_ODR + (4 * 3)
+BB_GPIOH_ODR_4         EQU  _BB_GPIOH_ODR + (4 * 4)
+BB_GPIOH_ODR_5         EQU  _BB_GPIOH_ODR + (4 * 5)
+BB_GPIOH_ODR_6         EQU  _BB_GPIOH_ODR + (4 * 6)
+BB_GPIOH_ODR_7         EQU  _BB_GPIOH_ODR + (4 * 7)
+BB_GPIOH_ODR_8         EQU  _BB_GPIOH_ODR + (4 * 8)
+BB_GPIOH_ODR_9         EQU  _BB_GPIOH_ODR + (4 * 9)
+BB_GPIOH_ODR_10        EQU  _BB_GPIOH_ODR + (4 * 10)
+BB_GPIOH_ODR_11        EQU  _BB_GPIOH_ODR + (4 * 11)
+BB_GPIOH_ODR_12        EQU  _BB_GPIOH_ODR + (4 * 12)
+BB_GPIOH_ODR_13        EQU  _BB_GPIOH_ODR + (4 * 13)
+BB_GPIOH_ODR_14        EQU  _BB_GPIOH_ODR + (4 * 14)
+BB_GPIOH_ODR_15        EQU  _BB_GPIOH_ODR + (4 * 15)
+
+
+; ---------------------- LCKR ---------------------------
+
+; LCKR A
+_BB_GPIOA_LCKR          EQU  PERIPH_BB_BASE + (GPIOA_LCKR - PERIPH_BASE) * 32
+
+BB_GPIOA_LCKR_0         EQU  _BB_GPIOA_LCKR + (4 * 0)
+BB_GPIOA_LCKR_1         EQU  _BB_GPIOA_LCKR + (4 * 1)
+BB_GPIOA_LCKR_2         EQU  _BB_GPIOA_LCKR + (4 * 2)
+BB_GPIOA_LCKR_3         EQU  _BB_GPIOA_LCKR + (4 * 3)
+BB_GPIOA_LCKR_4         EQU  _BB_GPIOA_LCKR + (4 * 4)
+BB_GPIOA_LCKR_5         EQU  _BB_GPIOA_LCKR + (4 * 5)
+BB_GPIOA_LCKR_6         EQU  _BB_GPIOA_LCKR + (4 * 6)
+BB_GPIOA_LCKR_7         EQU  _BB_GPIOA_LCKR + (4 * 7)
+BB_GPIOA_LCKR_8         EQU  _BB_GPIOA_LCKR + (4 * 8)
+BB_GPIOA_LCKR_9         EQU  _BB_GPIOA_LCKR + (4 * 9)
+BB_GPIOA_LCKR_10        EQU  _BB_GPIOA_LCKR + (4 * 10)
+BB_GPIOA_LCKR_11        EQU  _BB_GPIOA_LCKR + (4 * 11)
+BB_GPIOA_LCKR_12        EQU  _BB_GPIOA_LCKR + (4 * 12)
+BB_GPIOA_LCKR_13        EQU  _BB_GPIOA_LCKR + (4 * 13)
+BB_GPIOA_LCKR_14        EQU  _BB_GPIOA_LCKR + (4 * 14)
+BB_GPIOA_LCKR_15        EQU  _BB_GPIOA_LCKR + (4 * 15)
+BB_GPIOA_LCKR_K         EQU  _BB_GPIOA_LCKR + (4 * 16) ; Lock key bit
+
+
+; LCKR B
+_BB_GPIOB_LCKR          EQU  PERIPH_BB_BASE + (GPIOB_LCKR - PERIPH_BASE) * 32
+
+BB_GPIOB_LCKR_0         EQU  _BB_GPIOB_LCKR + (4 * 0)
+BB_GPIOB_LCKR_1         EQU  _BB_GPIOB_LCKR + (4 * 1)
+BB_GPIOB_LCKR_2         EQU  _BB_GPIOB_LCKR + (4 * 2)
+BB_GPIOB_LCKR_3         EQU  _BB_GPIOB_LCKR + (4 * 3)
+BB_GPIOB_LCKR_4         EQU  _BB_GPIOB_LCKR + (4 * 4)
+BB_GPIOB_LCKR_5         EQU  _BB_GPIOB_LCKR + (4 * 5)
+BB_GPIOB_LCKR_6         EQU  _BB_GPIOB_LCKR + (4 * 6)
+BB_GPIOB_LCKR_7         EQU  _BB_GPIOB_LCKR + (4 * 7)
+BB_GPIOB_LCKR_8         EQU  _BB_GPIOB_LCKR + (4 * 8)
+BB_GPIOB_LCKR_9         EQU  _BB_GPIOB_LCKR + (4 * 9)
+BB_GPIOB_LCKR_10        EQU  _BB_GPIOB_LCKR + (4 * 10)
+BB_GPIOB_LCKR_11        EQU  _BB_GPIOB_LCKR + (4 * 11)
+BB_GPIOB_LCKR_12        EQU  _BB_GPIOB_LCKR + (4 * 12)
+BB_GPIOB_LCKR_13        EQU  _BB_GPIOB_LCKR + (4 * 13)
+BB_GPIOB_LCKR_14        EQU  _BB_GPIOB_LCKR + (4 * 14)
+BB_GPIOB_LCKR_15        EQU  _BB_GPIOB_LCKR + (4 * 15)
+BB_GPIOB_LCKR_K         EQU  _BB_GPIOB_LCKR + (4 * 16) ; Lock key bit
+
+
+; LCKR C
+_BB_GPIOC_LCKR          EQU  PERIPH_BB_BASE + (GPIOC_LCKR - PERIPH_BASE) * 32
+
+BB_GPIOC_LCKR_0         EQU  _BB_GPIOC_LCKR + (4 * 0)
+BB_GPIOC_LCKR_1         EQU  _BB_GPIOC_LCKR + (4 * 1)
+BB_GPIOC_LCKR_2         EQU  _BB_GPIOC_LCKR + (4 * 2)
+BB_GPIOC_LCKR_3         EQU  _BB_GPIOC_LCKR + (4 * 3)
+BB_GPIOC_LCKR_4         EQU  _BB_GPIOC_LCKR + (4 * 4)
+BB_GPIOC_LCKR_5         EQU  _BB_GPIOC_LCKR + (4 * 5)
+BB_GPIOC_LCKR_6         EQU  _BB_GPIOC_LCKR + (4 * 6)
+BB_GPIOC_LCKR_7         EQU  _BB_GPIOC_LCKR + (4 * 7)
+BB_GPIOC_LCKR_8         EQU  _BB_GPIOC_LCKR + (4 * 8)
+BB_GPIOC_LCKR_9         EQU  _BB_GPIOC_LCKR + (4 * 9)
+BB_GPIOC_LCKR_10        EQU  _BB_GPIOC_LCKR + (4 * 10)
+BB_GPIOC_LCKR_11        EQU  _BB_GPIOC_LCKR + (4 * 11)
+BB_GPIOC_LCKR_12        EQU  _BB_GPIOC_LCKR + (4 * 12)
+BB_GPIOC_LCKR_13        EQU  _BB_GPIOC_LCKR + (4 * 13)
+BB_GPIOC_LCKR_14        EQU  _BB_GPIOC_LCKR + (4 * 14)
+BB_GPIOC_LCKR_15        EQU  _BB_GPIOC_LCKR + (4 * 15)
+BB_GPIOC_LCKR_K         EQU  _BB_GPIOC_LCKR + (4 * 16) ; Lock key bit
+
+
+; LCKR D
+_BB_GPIOD_LCKR          EQU  PERIPH_BB_BASE + (GPIOD_LCKR - PERIPH_BASE) * 32
+
+BB_GPIOD_LCKR_0         EQU  _BB_GPIOD_LCKR + (4 * 0)
+BB_GPIOD_LCKR_1         EQU  _BB_GPIOD_LCKR + (4 * 1)
+BB_GPIOD_LCKR_2         EQU  _BB_GPIOD_LCKR + (4 * 2)
+BB_GPIOD_LCKR_3         EQU  _BB_GPIOD_LCKR + (4 * 3)
+BB_GPIOD_LCKR_4         EQU  _BB_GPIOD_LCKR + (4 * 4)
+BB_GPIOD_LCKR_5         EQU  _BB_GPIOD_LCKR + (4 * 5)
+BB_GPIOD_LCKR_6         EQU  _BB_GPIOD_LCKR + (4 * 6)
+BB_GPIOD_LCKR_7         EQU  _BB_GPIOD_LCKR + (4 * 7)
+BB_GPIOD_LCKR_8         EQU  _BB_GPIOD_LCKR + (4 * 8)
+BB_GPIOD_LCKR_9         EQU  _BB_GPIOD_LCKR + (4 * 9)
+BB_GPIOD_LCKR_10        EQU  _BB_GPIOD_LCKR + (4 * 10)
+BB_GPIOD_LCKR_11        EQU  _BB_GPIOD_LCKR + (4 * 11)
+BB_GPIOD_LCKR_12        EQU  _BB_GPIOD_LCKR + (4 * 12)
+BB_GPIOD_LCKR_13        EQU  _BB_GPIOD_LCKR + (4 * 13)
+BB_GPIOD_LCKR_14        EQU  _BB_GPIOD_LCKR + (4 * 14)
+BB_GPIOD_LCKR_15        EQU  _BB_GPIOD_LCKR + (4 * 15)
+BB_GPIOD_LCKR_K         EQU  _BB_GPIOD_LCKR + (4 * 16) ; Lock key bit
+
+
+; LCKR E
+_BB_GPIOE_LCKR          EQU  PERIPH_BB_BASE + (GPIOE_LCKR - PERIPH_BASE) * 32
+
+BB_GPIOE_LCKR_0         EQU  _BB_GPIOE_LCKR + (4 * 0)
+BB_GPIOE_LCKR_1         EQU  _BB_GPIOE_LCKR + (4 * 1)
+BB_GPIOE_LCKR_2         EQU  _BB_GPIOE_LCKR + (4 * 2)
+BB_GPIOE_LCKR_3         EQU  _BB_GPIOE_LCKR + (4 * 3)
+BB_GPIOE_LCKR_4         EQU  _BB_GPIOE_LCKR + (4 * 4)
+BB_GPIOE_LCKR_5         EQU  _BB_GPIOE_LCKR + (4 * 5)
+BB_GPIOE_LCKR_6         EQU  _BB_GPIOE_LCKR + (4 * 6)
+BB_GPIOE_LCKR_7         EQU  _BB_GPIOE_LCKR + (4 * 7)
+BB_GPIOE_LCKR_8         EQU  _BB_GPIOE_LCKR + (4 * 8)
+BB_GPIOE_LCKR_9         EQU  _BB_GPIOE_LCKR + (4 * 9)
+BB_GPIOE_LCKR_10        EQU  _BB_GPIOE_LCKR + (4 * 10)
+BB_GPIOE_LCKR_11        EQU  _BB_GPIOE_LCKR + (4 * 11)
+BB_GPIOE_LCKR_12        EQU  _BB_GPIOE_LCKR + (4 * 12)
+BB_GPIOE_LCKR_13        EQU  _BB_GPIOE_LCKR + (4 * 13)
+BB_GPIOE_LCKR_14        EQU  _BB_GPIOE_LCKR + (4 * 14)
+BB_GPIOE_LCKR_15        EQU  _BB_GPIOE_LCKR + (4 * 15)
+BB_GPIOE_LCKR_K         EQU  _BB_GPIOE_LCKR + (4 * 16) ; Lock key bit
+
+
+; LCKR F
+_BB_GPIOF_LCKR          EQU  PERIPH_BB_BASE + (GPIOF_LCKR - PERIPH_BASE) * 32
+
+BB_GPIOF_LCKR_0         EQU  _BB_GPIOF_LCKR + (4 * 0)
+BB_GPIOF_LCKR_1         EQU  _BB_GPIOF_LCKR + (4 * 1)
+BB_GPIOF_LCKR_2         EQU  _BB_GPIOF_LCKR + (4 * 2)
+BB_GPIOF_LCKR_3         EQU  _BB_GPIOF_LCKR + (4 * 3)
+BB_GPIOF_LCKR_4         EQU  _BB_GPIOF_LCKR + (4 * 4)
+BB_GPIOF_LCKR_5         EQU  _BB_GPIOF_LCKR + (4 * 5)
+BB_GPIOF_LCKR_6         EQU  _BB_GPIOF_LCKR + (4 * 6)
+BB_GPIOF_LCKR_7         EQU  _BB_GPIOF_LCKR + (4 * 7)
+BB_GPIOF_LCKR_8         EQU  _BB_GPIOF_LCKR + (4 * 8)
+BB_GPIOF_LCKR_9         EQU  _BB_GPIOF_LCKR + (4 * 9)
+BB_GPIOF_LCKR_10        EQU  _BB_GPIOF_LCKR + (4 * 10)
+BB_GPIOF_LCKR_11        EQU  _BB_GPIOF_LCKR + (4 * 11)
+BB_GPIOF_LCKR_12        EQU  _BB_GPIOF_LCKR + (4 * 12)
+BB_GPIOF_LCKR_13        EQU  _BB_GPIOF_LCKR + (4 * 13)
+BB_GPIOF_LCKR_14        EQU  _BB_GPIOF_LCKR + (4 * 14)
+BB_GPIOF_LCKR_15        EQU  _BB_GPIOF_LCKR + (4 * 15)
+BB_GPIOF_LCKR_K         EQU  _BB_GPIOF_LCKR + (4 * 16) ; Lock key bit
+
+
+; LCKR G
+_BB_GPIOG_LCKR          EQU  PERIPH_BB_BASE + (GPIOG_LCKR - PERIPH_BASE) * 32
+
+BB_GPIOG_LCKR_0         EQU  _BB_GPIOG_LCKR + (4 * 0)
+BB_GPIOG_LCKR_1         EQU  _BB_GPIOG_LCKR + (4 * 1)
+BB_GPIOG_LCKR_2         EQU  _BB_GPIOG_LCKR + (4 * 2)
+BB_GPIOG_LCKR_3         EQU  _BB_GPIOG_LCKR + (4 * 3)
+BB_GPIOG_LCKR_4         EQU  _BB_GPIOG_LCKR + (4 * 4)
+BB_GPIOG_LCKR_5         EQU  _BB_GPIOG_LCKR + (4 * 5)
+BB_GPIOG_LCKR_6         EQU  _BB_GPIOG_LCKR + (4 * 6)
+BB_GPIOG_LCKR_7         EQU  _BB_GPIOG_LCKR + (4 * 7)
+BB_GPIOG_LCKR_8         EQU  _BB_GPIOG_LCKR + (4 * 8)
+BB_GPIOG_LCKR_9         EQU  _BB_GPIOG_LCKR + (4 * 9)
+BB_GPIOG_LCKR_10        EQU  _BB_GPIOG_LCKR + (4 * 10)
+BB_GPIOG_LCKR_11        EQU  _BB_GPIOG_LCKR + (4 * 11)
+BB_GPIOG_LCKR_12        EQU  _BB_GPIOG_LCKR + (4 * 12)
+BB_GPIOG_LCKR_13        EQU  _BB_GPIOG_LCKR + (4 * 13)
+BB_GPIOG_LCKR_14        EQU  _BB_GPIOG_LCKR + (4 * 14)
+BB_GPIOG_LCKR_15        EQU  _BB_GPIOG_LCKR + (4 * 15)
+BB_GPIOG_LCKR_K         EQU  _BB_GPIOG_LCKR + (4 * 16) ; Lock key bit
+
+
+; LCKR H
+_BB_GPIOH_LCKR          EQU  PERIPH_BB_BASE + (GPIOH_LCKR - PERIPH_BASE) * 32
+
+BB_GPIOH_LCKR_0         EQU  _BB_GPIOH_LCKR + (4 * 0)
+BB_GPIOH_LCKR_1         EQU  _BB_GPIOH_LCKR + (4 * 1)
+BB_GPIOH_LCKR_2         EQU  _BB_GPIOH_LCKR + (4 * 2)
+BB_GPIOH_LCKR_3         EQU  _BB_GPIOH_LCKR + (4 * 3)
+BB_GPIOH_LCKR_4         EQU  _BB_GPIOH_LCKR + (4 * 4)
+BB_GPIOH_LCKR_5         EQU  _BB_GPIOH_LCKR + (4 * 5)
+BB_GPIOH_LCKR_6         EQU  _BB_GPIOH_LCKR + (4 * 6)
+BB_GPIOH_LCKR_7         EQU  _BB_GPIOH_LCKR + (4 * 7)
+BB_GPIOH_LCKR_8         EQU  _BB_GPIOH_LCKR + (4 * 8)
+BB_GPIOH_LCKR_9         EQU  _BB_GPIOH_LCKR + (4 * 9)
+BB_GPIOH_LCKR_10        EQU  _BB_GPIOH_LCKR + (4 * 10)
+BB_GPIOH_LCKR_11        EQU  _BB_GPIOH_LCKR + (4 * 11)
+BB_GPIOH_LCKR_12        EQU  _BB_GPIOH_LCKR + (4 * 12)
+BB_GPIOH_LCKR_13        EQU  _BB_GPIOH_LCKR + (4 * 13)
+BB_GPIOH_LCKR_14        EQU  _BB_GPIOH_LCKR + (4 * 14)
+BB_GPIOH_LCKR_15        EQU  _BB_GPIOH_LCKR + (4 * 15)
+BB_GPIOH_LCKR_K         EQU  _BB_GPIOH_LCKR + (4 * 16) ; Lock key bit
+
+	END
