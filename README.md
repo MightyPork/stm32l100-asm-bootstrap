@@ -1,6 +1,6 @@
 # Bootstrap projekt a asm knihovna pro STM32L100RC
 
-Projekt je vyvíjen na *Katedře měření ČVUT FEL v Praze* a bude sloužit pro předmět [NVS][nvs] (příp. [MMP][mmp]).
+Projekt je vyvíjen na [*Katedře měření ČVUT FEL v Praze*][measure] a bude sloužit pro předmět [NVS][nvs] (příp. [MMP][mmp]).
 
 - Ukázkový program je založený na starším kódu © Michal Tomáš, 2010.
 - Základ knihovny a projektu © Petr Douša, 2015.
@@ -84,6 +84,6 @@ Jako editor lze použít Keil pod wine, libovolný textový editor nebo ARMovsk�
 nic kompilovat, ale má dobru podporu pro assembler a kontextovou nápovědu.
 
 
-
+[measure]: http://measure.feld.cvut.cz/
 [nvs]: http://measure.feld.cvut.cz/vyuka/predmety/A4B38NVS
 [mmp]: http://measure.feld.cvut.cz/vyuka/predmety/A3B38MMP
