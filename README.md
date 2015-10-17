@@ -1,4 +1,4 @@
-# Keil (5) MDK-ARM projekt pro STM32L100 Discovery
+# Bootstrap projekt a asm knihovna pro STM32L100RC
 
 Projekt je vyvíjen na *Katedře měření ČVUT FEL v Praze* a bude sloužit pro předmět [NVS][nvs] (příp. [MMP][mmp]).
 
