@@ -22,3 +22,8 @@
 
 *.bak
 *~
+
+# Keil temporary files
+
+*.uvguix.*
+/RTE/
