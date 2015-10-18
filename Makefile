@@ -128,4 +128,6 @@ disasm: output.axf
 # Remove temporary files
 clean:
 	@echo -e "\e[0;32mRemoving temporary files\e[0m"
-	$(RM) -f *.bak *.lnp *.iex *.hex *.elf *.axf *.htm *.lnp *.lst *.plg *.tra *.o *.map *.d *.dep *.disasm *.bin
+	$(RM) -f *.bak *.lnp *.iex *.hex *.elf *.axf *.htm *.lnp *.lst *.plg *.tra *.o *.map *.d *.dep *.disasm *.bin *.uvguix.*
+	$(RM) -rf ./RTE
+
