@@ -80,26 +80,26 @@ all: build
 
 # Link object files to AXF file
 output.axf: $(main_base).o $(startup_base).o
-	@echo -e "\e[0;33mLinking object files to $@\e[0m"
+	@echo "== Linking object files to $@ =="
 	@$(LD) $(LDOPTS) --output $@ "$(main_base).o" "$(startup_base).o"
 
 # Get BIN image file from AXF file
 %.bin: %.axf
-	@echo -e "\e[0;33mConverting $< to $@\e[0m"
+	@echo "== Converting $< to $@ =="
 	@$(FROMELF) --bincombined --output $@ $<
 
 # Get Intel Hex file from AXF file
 %.hex: %.axf
-	@echo -e "\e[0;33mConverting $< to $@\e[0m"
+	@echo "== Converting $< to $@ =="
 	@$(FROMELF) --i32combined --output $@ $<
 
 # Get Object file from Assembler source file
 $(main_base).o: $(main_file)
-	@echo -e "\e[0;32mCompiling $< to $@\e[0m"
+	@echo "== Compiling $< to $@ =="
 	@$(AS) $(ASOPTS) --list $(main_base).lst -o $@ --depend $(main_base).d $<
 
 $(startup_base).o: $(startup_file)
-	@echo -e "\e[0;32mCompiling $< to $@\e[0m"
+	@echo "== Compiling $< to $@ =="
 	@$(AS) $(ASOPTS) --list $(startup_base).lst -o $@ --depend $(startup_base).d $<
 
 # Get binary image (compile and link)
@@ -116,17 +116,17 @@ link: output.axf
 
 # Flash using st-link
 flash: output.bin
-	@echo -e "\e[0;96mWriting image to device via ST-Link\e[0m"
+	@echo "== Writing image to device via ST-Link =="
 	@$(STFLASH) write "output.bin" 0x8000000
-	@echo -e "\e[0;96mWrite OK!\e[0m"
+	@echo "== Write OK! =="
 
 disasm: output.axf
-	@echo -e "\e[0;33mDisassembling $< to output.disasm\e[0m"
+	@echo "== Disassembling $< to output.disasm =="
 	@$(OBJDUMP) -d $< > output.disasm
 
 # Remove temporary files
 clean:
-	@echo -e "\e[0;32mRemoving temporary files\e[0m"
+	@echo "== Removing temporary files =="
 	$(RM) -f *.bak *.lnp *.iex *.hex *.elf *.axf *.htm *.lnp *.lst *.plg *.tra *.o *.map *.d *.dep *.disasm *.bin *.uvguix.*
 	$(RM) -rf ./RTE
 
