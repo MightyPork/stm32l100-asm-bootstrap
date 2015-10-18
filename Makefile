@@ -10,7 +10,7 @@ lib_dir = lib/
 # ASSEMBLER CONFIG
 #####################################################################################
 
-ASOPTS  = --cpu Cortex-M3 --apcs interwork
+ASOPTS  = --cpu Cortex-M3 -g --apcs interwork
 
 # Add library to include path
 ASOPTS += -I$(lib_dir)
@@ -21,6 +21,7 @@ ASOPTS += -I$(lib_dir)
 #####################################################################################
 
 LDOPTS  = --cpu Cortex-M3 --strict
+LDOPTS += --bestdebug
 LDOPTS += --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000
 LDOPTS += --entry Reset_Handler --first __Vectors
 
@@ -112,7 +113,7 @@ flash: output.bin
 
 disasm: output.axf
 	@echo "== Disassembling $< to output.disasm =="
-	@$(OBJDUMP) -d $< > output.disasm
+	@$(OBJDUMP) -S -d $< > output.disasm
 
 # Remove temporary files
 clean:
