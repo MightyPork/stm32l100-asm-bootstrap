@@ -15,11 +15,6 @@ ASOPTS  = --cpu Cortex-M3 --apcs interwork
 # Add library to include path
 ASOPTS += -I$(lib_dir)
 
-# Debug flags
-ifeq ($(G), 1)
-  ASOPTS += -g
-endif
-
 
 #####################################################################################
 # LINKER CONFIG
@@ -28,11 +23,6 @@ endif
 LDOPTS  = --cpu Cortex-M3 --strict
 LDOPTS += --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000
 LDOPTS += --entry Reset_Handler --first __Vectors
-
-# Debug flags
-ifneq ($(G), 1)
-  LDOPTS += --no_debug
-endif
 
 # Verbose flags (run make V=1)
 ifeq ($(V), 1)
