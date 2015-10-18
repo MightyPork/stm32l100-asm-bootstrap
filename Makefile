@@ -52,9 +52,18 @@ endif
 #    #!/bin/bash
 #    WINEDEBUG=fixme-all wine ~/.wine/drive_c/Keil_v5/ARM/ARMCC_505u2/bin/armasm.exe $@
 
-LD      = WINEDEBUG=fixme-all wine ~/.wine/drive_c/Keil_v5/ARM/ARMCC_505u2/bin/armlink.exe
-AS      = WINEDEBUG=fixme-all wine ~/.wine/drive_c/Keil_v5/ARM/ARMCC_505u2/bin/armasm.exe
-FROMELF = WINEDEBUG=fixme-all wine ~/.wine/drive_c/Keil_v5/ARM/ARMCC_505u2/bin/fromelf.exe
+# Disable Wine fixme warnings
+ENVS  = WINEDEBUG=fixme-all 
+# Stop DS-5 from trying to use it's internal unlicensed compiler (Attempt at DRM?)
+ENVS += ARMCC5_ASMOPT='' ARMCC5_CCOPT='' ARMCC5_FROMELFOPT='' ARMCC5_LINKOPT='' ARMCOMPILER6_ASMOPT='' ARMCOMPILER6_CLANGOPT=''
+ENVS += ARMCOMPILER6_FROMELFOPT='' ARMCOMPILER6_LINKOPT='' ARM_PRODUCT_PATH='' ARM_TOOL_VARIANT=''
+
+
+WINEPREFIX=$(ENVS) wine ~/.wine/drive_c/Keil_v5/ARM/ARMCC_505u2/bin
+
+LD      = $(WINEPREFIX)/armlink.exe
+AS      = $(WINEPREFIX)/armasm.exe
+FROMELF = $(WINEPREFIX)/fromelf.exe
 OBJDUMP = arm-none-eabi-objdump
 STFLASH = st-flash
 RM      = rm

@@ -17,6 +17,7 @@
 *.dep
 *.disasm
 *.bin
+*.log
 
 # Backup files
 
@@ -27,3 +28,7 @@
 
 *.uvguix.*
 /RTE/
+
+# DS-5 temporary files
+
+/.externalToolBuilders

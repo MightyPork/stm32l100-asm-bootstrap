@@ -9,6 +9,7 @@
 ;*
 ;***************************************************************************************************
 
+
 ;***************************************************************************************************
 ;* Include library files
 ;***************************************************************************************************
@@ -42,11 +43,11 @@ __use_two_region_memory
 ;***************************************************************************************************
 
 SystemInit
-		EXPORT	SystemInit				; Export the address to startup script
+		EXPORT	SystemInit                         ; Export the address to startup script
 				PUSH	{LR}
-				BL		RCC_CNF			; Configure clock sources
-				BL		GPIO_CNF		; Configure GPIO power and pin settings
-				BL		SYSTICK_CNF		; Configure SysTick timer
+				BL		RCC_CNF                    ; Configure clock sources
+				BL		GPIO_CNF                   ; Configure GPIO power and pin settings
+				BL		SYSTICK_CNF                ; Configure SysTick timer
 				POP		{PC}
 
 
@@ -56,8 +57,8 @@ SystemInit
 ;***************************************************************************************************
 
 SysTick_Handler
-		EXPORT SysTick_Handler			; Export the address to startup script (replaces a WEAK stub)
-				PUSH {LR}
+		EXPORT SysTick_Handler                     ; Export the address to startup script (replaces a WEAK stub)
+				PUSH	{LR}
 
 				; Toggle the PC8 LED (bit-banding access)
 				LDR		R0, =BB_GPIOC_ODR_9
@@ -71,7 +72,7 @@ SysTick_Handler
 ;				EOR		R1, R1, #GPIO9
 ;				STR		R1, [R0]
 
-				POP {PC}
+				POP		{PC}
 
 
 
@@ -83,8 +84,8 @@ SysTick_Handler
 ;***************************************************************************************************
 
 __main
-		EXPORT	__main				; Export the address to startup script
-				ENTRY				; Marks the program entry point (shouldnt be here)
+		EXPORT	__main                             ; Export the address to startup script
+				ENTRY                              ; Marks the program entry point (shouldnt be here)
 LOOP
 				; blink the other led slowly
 
@@ -103,7 +104,7 @@ LOOP
 				MOV		R0, #50
 				BL		DELAY
 
-				B LOOP
+				B		LOOP
 
 
 
@@ -117,7 +118,7 @@ GPIO_CNF
 				PUSH	{R0,R1,LR}
 
 				; Enable GPIO peripheral timing
-				LDR		R0, =RCC_AHBENR ; Advanced High-speed Bus ENable Register
+				LDR		R0, =RCC_AHBENR            ; Advanced High-speed Bus ENable Register
 				LDR		R1, [R0]
 				LDR		R2, =(RCC_AHBENR_GPIOAEN :OR: RCC_AHBENR_GPIOCEN)
 				ORR		R1, R1, R2
@@ -133,8 +134,8 @@ GPIO_CNF
 				; Input pin A0
 				LDR		R0, =GPIOA_MODER
 				LDR		R1, [R0]
-				BIC		R1,R1, #GPIO_MODER_0                      ; Clear the bit config area
-				ORR		R1,R1, #(GPIO_MODER_0 & GPIO_MODER_INPUT) ; Write the "input" pattern into the bit config area
+				BIC		R1,R1, #GPIO_MODER_0       ; Clear the bit config area
+				ORR		R1,R1, #(GPIO_MODER_0 & GPIO_MODER_INPUT); Write the "input" pattern into the bit config area
 				STR		R1, [R0]
 
 				POP		{R0,R1,PC}
@@ -181,19 +182,19 @@ SYSTICK_CNF
 ;**************************************************************************************************
 
 DELAY
-				PUSH	{R2, LR}		; Push the changed registers & link register
+				PUSH	{R2, LR}                   ; Push the changed registers & link register
 
 WAIT_OUTER		; Outer loop
-				LDR		R2, =40000		; Length of inner loop
+				LDR		R2, =40000                 ; Length of inner loop
 
 				; Inner loop
-WAIT_INNER		SUBS	R2, R2, #1		; Decrement INNER loop counter
-				BNE		WAIT_INNER		; Continue the loop if not done
+WAIT_INNER		SUBS	R2, R2, #1                 ; Decrement INNER loop counter
+				BNE		WAIT_INNER                 ; Continue the loop if not done
 
-				SUBS	R0, R0, #1		; Decrement OUTER loop counter
-				BNE		WAIT_OUTER		; Continue the loop if not done
+				SUBS	R0, R0, #1                 ; Decrement OUTER loop counter
+				BNE		WAIT_OUTER                 ; Continue the loop if not done
 
-				POP		{R2, PC}		; Pop & return
+				POP		{R2, PC}                   ; Pop & return
 
 
 
@@ -237,8 +238,8 @@ RCC_CNF
 				; Wait for HSIRDY
 				ALIGN
 NO_HSI_RDY		LDR		R1, [R0]
-				TST	 	R1, #RCC_CR_HSIRDY
-				BEQ 	NO_HSI_RDY
+				TST		R1, #RCC_CR_HSIRDY
+				BEQ		NO_HSI_RDY
 
 				; Select HSI as the core clock source
 
@@ -253,5 +254,5 @@ NO_HSI_RDY		LDR		R1, [R0]
 
 ;**************************************************************************************************
 
-				ALIGN	; Adds NOP if needed to complete a 32-bit word
+				ALIGN                              ; Adds NOP if needed to complete a 32-bit word
 				END
