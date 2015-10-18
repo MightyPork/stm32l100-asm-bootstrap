@@ -22,7 +22,7 @@ Projekt je určen pro procesor **STM32L100RC** v kitu **STM32L100 Discovery**, k
 
 ## Knihovna
 
-Assemblerová knihovna sestává ze sady souborů ve složce `lib/` a startup scriptu `startup_stm32l100xc.s` (ten pochází 
+Assemblerová knihovna sestává ze sady souborů ve složce `lib/` a startup scriptu `startup_stm32l100xc.s` (ten pochází
 z instalace Keilu, dle hlavičky je přímo od ST).
 
 Soubor `INI_REGS.s` obsahuje definice adres registrů, soubory `INI_BITS_*.s` pak bitové masky a hodnoty
@@ -63,17 +63,21 @@ Ve Vitualboxu funguje včetne ST-Linku, ovšem pouze s verzí 2.
 
 ### Linux
 
-Kompilace a nahrávání probíhá pomocí Makefile v projektu. 
+Kompilace a nahrávání probíhá pomocí Makefile v projektu.
 
 Napřed je potřeba nainstalovat následující software:
 
-1. Pomocí `wine` nainstalovat Keil (do `~/.wine`) - z jeho složky se berou binutils a assembler, nejde je přesunout kvůli 
-   licenčním souborům. Teoreticky by mohlo jít použít linuxové verze, pokud zjistíte jak nastavit, aby používaly licenční 
+1. Pomocí `wine` nainstalovat Keil (do `~/.wine`) - z jeho složky se berou binutils a assembler, nejde je přesunout kvůli
+   licenčním souborům. Teoreticky by mohlo jít použít linuxové verze, pokud zjistíte jak nastavit, aby používaly licenční
    soubory z Keilu (omezení na 32 kB).
 
-2. Pro plnou funkčnost se hodí doinstalovat `arm-none-eabi-binutils`, ale není nutné - jen pro `make disasm`
+2. Zkontrolovat v Makefile, že proměnná `WINEPREFIX` obsahuje správnou cestu ke složce s exe soubory z Keilu, případně opravit.<br>
+   Pokud používáte nativní linuxové verze těchto programů, upravte náležitě Makefile.
 
-3. Dále je potřeba nainstalovat `stlink` pro komunikaci s deskou, linuxová verze je volně dostupná.
+3. Pro plnou funkčnost se hodí doinstalovat `arm-none-eabi-binutils`, ale není nutné - jen pro `make disasm`
+
+4. Dále je potřeba nainstalovat `stlink` pro komunikaci s deskou, linuxová verze je volně dostupná.
+
 
 *Tip:* Uživatelé ArchLinuxu vše najdou v oficiálních repozitářích.
 
