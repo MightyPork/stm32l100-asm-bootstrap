@@ -15,14 +15,14 @@
 ;***************************************************************************************************
 
 		; Register addresses
-		GET		lib/INI_REGS.s
+		GET		lib/INI_BASE.s
+		GET		lib/INI_REGS.s                     ;deprecated TODO remove when definitions moved to other files
 
 		; Bit presets
-		GET		lib/INI_BITS_GPIO.s
-		GET		lib/INI_BITS_RCC.s
-		GET		lib/INI_BITS_FLASH.s
-		GET		lib/INI_BITS_SYSTICK.s
-		GET		lib/INI_BB.s
+		GET		lib/INI_GPIO.s
+		GET		lib/INI_SYSTICK.s
+		GET		lib/INI_BITS_RCC.s                 ;legacy FIXME
+		GET		lib/INI_BITS_FLASH.s               ;legacy FIXME
 
 
 ;***************************************************************************************************
