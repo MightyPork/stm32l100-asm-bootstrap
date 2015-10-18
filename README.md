@@ -71,7 +71,7 @@ Napřed je potřeba nainstalovat následující software:
    licenčním souborům. Teoreticky by mohlo jít použít linuxové verze, pokud zjistíte jak nastavit, aby používaly licenční
    soubory z Keilu (omezení na 32 kB).
 
-2. Zkontrolovat v Makefile, že proměnná `WINEPREFIX` obsahuje správnou cestu ke složce s exe soubory z Keilu, případně opravit.<br>
+2. Zkontrolovat v Makefile, že proměnná `WINEPREFIX` obsahuje správnou cestu ke složce s exe soubory z Keilu, případně opravit.
    Pokud používáte nativní linuxové verze těchto programů, upravte náležitě Makefile.
 
 3. Pro plnou funkčnost se hodí doinstalovat `arm-none-eabi-binutils`, ale není nutné - jen pro `make disasm`
