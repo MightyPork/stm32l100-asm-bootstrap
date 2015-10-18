@@ -84,9 +84,10 @@ Napřed je potřeba nainstalovat následující software:
 
 #### V čem editovat
 
-Jako editor lze použít Keil pod wine, libovolný textový editor nebo ARMovské IDE DS-5 Community Edition - bohužel nedovoluje
+Jako editor lze použít Keil pod wine, libovolný textový editor nebo ARM IDE DS-5 *Community Edition* - bohužel nedovoluje
 nic kompilovat, ale má dobru podporu pro assembler a kontextovou nápovědu.
 
+DS-5 podporuje Makefile, ale není to nic extra - lepší `make` spouštět v terminálu.
 
 [measure]: http://measure.feld.cvut.cz/
 [nvs]: http://measure.feld.cvut.cz/vyuka/predmety/A4B38NVS
