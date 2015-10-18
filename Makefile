@@ -42,28 +42,27 @@ endif
 
 
 #####################################################################################
-# EXTERNAL PROGRAM NAMES
+# EXTERNAL PROGRAMS
 #####################################################################################
 
 # armlink, armasm, fromelf - exe files in Wine directory (with Keil installed)
 
-# Example launcher for Keil exe programs:
-#
-#    #!/bin/bash
-#    WINEDEBUG=fixme-all wine ~/.wine/drive_c/Keil_v5/ARM/ARMCC_505u2/bin/armasm.exe $@
-
 # Disable Wine fixme warnings
-ENVS  = WINEDEBUG=fixme-all 
+ENVS  = WINEDEBUG=fixme-all
 # Stop DS-5 from trying to use it's internal unlicensed compiler (Attempt at DRM?)
 ENVS += ARMCC5_ASMOPT='' ARMCC5_CCOPT='' ARMCC5_FROMELFOPT='' ARMCC5_LINKOPT='' ARMCOMPILER6_ASMOPT='' ARMCOMPILER6_CLANGOPT=''
 ENVS += ARMCOMPILER6_FROMELFOPT='' ARMCOMPILER6_LINKOPT='' ARM_PRODUCT_PATH='' ARM_TOOL_VARIANT=''
 
+# ARM_PRODUCT_PATH should be possible to use if you want to run linux version of those programs.
 
 WINEPREFIX=$(ENVS) wine ~/.wine/drive_c/Keil_v5/ARM/ARMCC_505u2/bin
 
+# ARM programs from Keil
 LD      = $(WINEPREFIX)/armlink.exe
 AS      = $(WINEPREFIX)/armasm.exe
 FROMELF = $(WINEPREFIX)/fromelf.exe
+
+# Native programs
 OBJDUMP = arm-none-eabi-objdump
 STFLASH = st-flash
 RM      = rm
