@@ -129,14 +129,16 @@ GPIO_CNF
 				; Output pins C8, C9
 				LDR		R0, =GPIOC_MODER
 				LDR		R1, [R0]
+				                                   ; Clear the area we'll write to
 				BIC		R1,R1, #(GPIO_MODER_8 :OR: GPIO_MODER_9)
+				                                   ; Write "OUTPUT" pattern (0x5555...) masked to the two bits
 				ORR		R1,R1, #(GPIO_MODER_8 :OR: GPIO_MODER_9) & GPIO_MODER_OUTPUT
 				STR		R1, [R0]
 
 				; Input pin A0
 				LDR		R0, =GPIOA_MODER
 				LDR		R1, [R0]
-				BIC		R1,R1, #GPIO_MODER_0       ; Clear the bit config area
+				BIC		R1,R1, #GPIO_MODER_0
 				ORR		R1,R1, #(GPIO_MODER_0 & GPIO_MODER_INPUT); Write the "input" pattern into the bit config area
 				STR		R1, [R0]
 
