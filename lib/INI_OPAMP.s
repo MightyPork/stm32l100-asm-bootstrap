@@ -4,15 +4,31 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro OPAMP
 ;
+;                         Operational Amplifier (OPAMP)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                         Operational Amplifier (OPAMP)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; Op Amplifier module
+
+OPAMP_CSR      EQU  (_OPAMP + 0x00) ; OPAMP control/status register,
+OPAMP_OTR      EQU  (_OPAMP + 0x04) ; OPAMP offset trimming register for normal mode,
+OPAMP_LPOTR    EQU  (_OPAMP + 0x08) ; OPAMP offset trimming register for low power mode,
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;******************  Bit definition for OPAMP_CSR register  *****************
 OPAMP_CSR_OPA1PD                  EQU  0x00000001        ; OPAMP1 disable

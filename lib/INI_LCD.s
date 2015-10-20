@@ -4,15 +4,35 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro LCD
 ;
+;                          LCD Controller (LCD)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                          LCD Controller (LCD)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+
+; LCD config
+
+LCD_CR        EQU  (_LCD + 0x00) ; LCD control register,
+LCD_FCR       EQU  (_LCD + 0x04) ; LCD frame control register,
+LCD_SR        EQU  (_LCD + 0x08) ; LCD status register,
+LCD_CLR       EQU  (_LCD + 0x0C) ; LCD clear register,
+LCD_RAM       EQU  (_LCD + 0x14) ; LCD display memory,
+
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;******************  Bit definition for LCD_CR register  ********************
 LCD_CR_LCDEN            EQU  0x00000001     ; LCD Enable Bit

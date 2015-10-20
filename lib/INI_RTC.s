@@ -4,15 +4,82 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro RTC (obvod realneho casu)
 ;
+;                           Real-Time Clock (RTC)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
+
 ;****************************************************************************
-;
-;                           Real-Time Clock (RTC)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+
+; RTC
+
+RTC_TR              EQU  (_RTC + 0x00) ; RTC time register,
+RTC_DR              EQU  (_RTC + 0x04) ; RTC date register,
+RTC_CR              EQU  (_RTC + 0x08) ; RTC control register,
+RTC_ISR             EQU  (_RTC + 0x0C) ; RTC initialization and status register,
+RTC_PRER            EQU  (_RTC + 0x10) ; RTC prescaler register,
+RTC_WUTR            EQU  (_RTC + 0x14) ; RTC wakeup timer register,
+RTC_CALIBR          EQU  (_RTC + 0x18) ; RTC calibration register,
+RTC_ALRMAR          EQU  (_RTC + 0x1C) ; RTC alarm A register,
+RTC_ALRMBR          EQU  (_RTC + 0x20) ; RTC alarm B register,
+RTC_WPR             EQU  (_RTC + 0x24) ; RTC write protection register,
+RTC_SSR             EQU  (_RTC + 0x28) ; RTC sub second register,
+RTC_SHIFTR          EQU  (_RTC + 0x2C) ; RTC shift control register,
+RTC_TSTR            EQU  (_RTC + 0x30) ; RTC time stamp time register,
+RTC_TSDR            EQU  (_RTC + 0x34) ; RTC time stamp date register,
+RTC_TSSSR           EQU  (_RTC + 0x38) ; RTC time-stamp sub second register,
+RTC_CALR            EQU  (_RTC + 0x3C) ; RRTC calibration register,
+RTC_TAFCR           EQU  (_RTC + 0x40) ; RTC tamper and alternate function configuration register,
+RTC_ALRMASSR        EQU  (_RTC + 0x44) ; RTC alarm A sub second register,
+RTC_ALRMBSSR        EQU  (_RTC + 0x48) ; RTC alarm B sub second register,
+RTC_BKP0R_REG       EQU  (_RTC + 0x50) ; RTC backup register 0,
+RTC_BKP1R_REG       EQU  (_RTC + 0x54) ; RTC backup register 1,
+RTC_BKP2R_REG       EQU  (_RTC + 0x58) ; RTC backup register 2,
+RTC_BKP3R_REG       EQU  (_RTC + 0x5C) ; RTC backup register 3,
+RTC_BKP4R_REG       EQU  (_RTC + 0x60) ; RTC backup register 4,
+RTC_BKP5R_REG       EQU  (_RTC + 0x64) ; RTC backup register 5,
+RTC_BKP6R_REG       EQU  (_RTC + 0x68) ; RTC backup register 6,
+RTC_BKP7R_REG       EQU  (_RTC + 0x6C) ; RTC backup register 7,
+RTC_BKP8R_REG       EQU  (_RTC + 0x70) ; RTC backup register 8,
+RTC_BKP9R_REG       EQU  (_RTC + 0x74) ; RTC backup register 9,
+RTC_BKP10R_REG      EQU  (_RTC + 0x78) ; RTC backup register 10,
+RTC_BKP11R_REG      EQU  (_RTC + 0x7C) ; RTC backup register 11,
+RTC_BKP12R_REG      EQU  (_RTC + 0x80) ; RTC backup register 12,
+RTC_BKP13R_REG      EQU  (_RTC + 0x84) ; RTC backup register 13,
+RTC_BKP14R_REG      EQU  (_RTC + 0x88) ; RTC backup register 14,
+RTC_BKP15R_REG      EQU  (_RTC + 0x8C) ; RTC backup register 15,
+RTC_BKP16R_REG      EQU  (_RTC + 0x90) ; RTC backup register 16,
+RTC_BKP17R_REG      EQU  (_RTC + 0x94) ; RTC backup register 17,
+RTC_BKP18R_REG      EQU  (_RTC + 0x98) ; RTC backup register 18,
+RTC_BKP19R_REG      EQU  (_RTC + 0x9C) ; RTC backup register 19,
+RTC_BKP20R_REG      EQU  (_RTC + 0xA0) ; RTC backup register 20,
+RTC_BKP21R_REG      EQU  (_RTC + 0xA4) ; RTC backup register 21,
+RTC_BKP22R_REG      EQU  (_RTC + 0xA8) ; RTC backup register 22,
+RTC_BKP23R_REG      EQU  (_RTC + 0xAC) ; RTC backup register 23,
+RTC_BKP24R_REG      EQU  (_RTC + 0xB0) ; RTC backup register 24,
+RTC_BKP25R_REG      EQU  (_RTC + 0xB4) ; RTC backup register 25,
+RTC_BKP26R_REG      EQU  (_RTC + 0xB8) ; RTC backup register 26,
+RTC_BKP27R_REG      EQU  (_RTC + 0xBC) ; RTC backup register 27,
+RTC_BKP28R_REG      EQU  (_RTC + 0xC0) ; RTC backup register 28,
+RTC_BKP29R_REG      EQU  (_RTC + 0xC4) ; RTC backup register 29,
+RTC_BKP30R_REG      EQU  (_RTC + 0xC8) ; RTC backup register 30,
+RTC_BKP31R_REG      EQU  (_RTC + 0xCC) ; RTC backup register 31,
+
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;*******************  Bits definition for RTC_TR register  ******************
 RTC_TR_PM                         EQU  0x00400000

@@ -4,15 +4,225 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro TIM (casovace)
 ;
+;                               Timers (TIM)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                               Timers (TIM)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+
+; Timer 2
+
+TIM2_CR1      EQU  (_TIM2 + 0x00) ; TIM control register 1,
+TIM2_CR2      EQU  (_TIM2 + 0x04) ; TIM control register 2,
+TIM2_SMCR     EQU  (_TIM2 + 0x08) ; TIM slave mode control register,
+TIM2_DIER     EQU  (_TIM2 + 0x0C) ; TIM DMA/interrupt enable register,
+TIM2_SR       EQU  (_TIM2 + 0x10) ; TIM status register,
+TIM2_EGR      EQU  (_TIM2 + 0x14) ; TIM event generation register,
+TIM2_CCMR1    EQU  (_TIM2 + 0x18) ; TIM capture/compare mode register 1,
+TIM2_CCMR2    EQU  (_TIM2 + 0x1C) ; TIM capture/compare mode register 2,
+TIM2_CCER     EQU  (_TIM2 + 0x20) ; TIM capture/compare enable register,
+TIM2_CNT      EQU  (_TIM2 + 0x24) ; TIM counter register,
+TIM2_PSC      EQU  (_TIM2 + 0x28) ; TIM prescaler,
+TIM2_ARR      EQU  (_TIM2 + 0x2C) ; TIM auto-reload register,
+TIM2_CCR1     EQU  (_TIM2 + 0x34) ; TIM capture/compare register 1,
+TIM2_CCR2     EQU  (_TIM2 + 0x38) ; TIM capture/compare register 2,
+TIM2_CCR3     EQU  (_TIM2 + 0x3C) ; TIM capture/compare register 3,
+TIM2_CCR4     EQU  (_TIM2 + 0x40) ; TIM capture/compare register 4,
+TIM2_DCR      EQU  (_TIM2 + 0x48) ; TIM DMA control register,
+TIM2_DMAR     EQU  (_TIM2 + 0x4C) ; TIM DMA address for full transfer,
+TIM2_OR       EQU  (_TIM2 + 0x50) ; TIM option register,
+
+; Timer 3
+
+TIM3_CR1      EQU  (_TIM3 + 0x00) ; TIM control register 1,
+TIM3_CR2      EQU  (_TIM3 + 0x04) ; TIM control register 2,
+TIM3_SMCR     EQU  (_TIM3 + 0x08) ; TIM slave mode control register,
+TIM3_DIER     EQU  (_TIM3 + 0x0C) ; TIM DMA/interrupt enable register,
+TIM3_SR       EQU  (_TIM3 + 0x10) ; TIM status register,
+TIM3_EGR      EQU  (_TIM3 + 0x14) ; TIM event generation register,
+TIM3_CCMR1    EQU  (_TIM3 + 0x18) ; TIM capture/compare mode register 1,
+TIM3_CCMR2    EQU  (_TIM3 + 0x1C) ; TIM capture/compare mode register 2,
+TIM3_CCER     EQU  (_TIM3 + 0x20) ; TIM capture/compare enable register,
+TIM3_CNT      EQU  (_TIM3 + 0x24) ; TIM counter register,
+TIM3_PSC      EQU  (_TIM3 + 0x28) ; TIM prescaler,
+TIM3_ARR      EQU  (_TIM3 + 0x2C) ; TIM auto-reload register,
+TIM3_CCR1     EQU  (_TIM3 + 0x34) ; TIM capture/compare register 1,
+TIM3_CCR2     EQU  (_TIM3 + 0x38) ; TIM capture/compare register 2,
+TIM3_CCR3     EQU  (_TIM3 + 0x3C) ; TIM capture/compare register 3,
+TIM3_CCR4     EQU  (_TIM3 + 0x40) ; TIM capture/compare register 4,
+TIM3_DCR      EQU  (_TIM3 + 0x48) ; TIM DMA control register,
+TIM3_DMAR     EQU  (_TIM3 + 0x4C) ; TIM DMA address for full transfer,
+TIM3_OR       EQU  (_TIM3 + 0x50) ; TIM option register,
+
+; Timer 4
+
+TIM4_CR1      EQU  (_TIM4 + 0x00) ; TIM control register 1,
+TIM4_CR2      EQU  (_TIM4 + 0x04) ; TIM control register 2,
+TIM4_SMCR     EQU  (_TIM4 + 0x08) ; TIM slave mode control register,
+TIM4_DIER     EQU  (_TIM4 + 0x0C) ; TIM DMA/interrupt enable register,
+TIM4_SR       EQU  (_TIM4 + 0x10) ; TIM status register,
+TIM4_EGR      EQU  (_TIM4 + 0x14) ; TIM event generation register,
+TIM4_CCMR1    EQU  (_TIM4 + 0x18) ; TIM capture/compare mode register 1,
+TIM4_CCMR2    EQU  (_TIM4 + 0x1C) ; TIM capture/compare mode register 2,
+TIM4_CCER     EQU  (_TIM4 + 0x20) ; TIM capture/compare enable register,
+TIM4_CNT      EQU  (_TIM4 + 0x24) ; TIM counter register,
+TIM4_PSC      EQU  (_TIM4 + 0x28) ; TIM prescaler,
+TIM4_ARR      EQU  (_TIM4 + 0x2C) ; TIM auto-reload register,
+TIM4_CCR1     EQU  (_TIM4 + 0x34) ; TIM capture/compare register 1,
+TIM4_CCR2     EQU  (_TIM4 + 0x38) ; TIM capture/compare register 2,
+TIM4_CCR3     EQU  (_TIM4 + 0x3C) ; TIM capture/compare register 3,
+TIM4_CCR4     EQU  (_TIM4 + 0x40) ; TIM capture/compare register 4,
+TIM4_DCR      EQU  (_TIM4 + 0x48) ; TIM DMA control register,
+TIM4_DMAR     EQU  (_TIM4 + 0x4C) ; TIM DMA address for full transfer,
+TIM4_OR       EQU  (_TIM4 + 0x50) ; TIM option register,
+
+; Timer 5
+
+TIM5_CR1      EQU  (_TIM5 + 0x00) ; TIM control register 1,
+TIM5_CR2      EQU  (_TIM5 + 0x04) ; TIM control register 2,
+TIM5_SMCR     EQU  (_TIM5 + 0x08) ; TIM slave mode control register,
+TIM5_DIER     EQU  (_TIM5 + 0x0C) ; TIM DMA/interrupt enable register,
+TIM5_SR       EQU  (_TIM5 + 0x10) ; TIM status register,
+TIM5_EGR      EQU  (_TIM5 + 0x14) ; TIM event generation register,
+TIM5_CCMR1    EQU  (_TIM5 + 0x18) ; TIM capture/compare mode register 1,
+TIM5_CCMR2    EQU  (_TIM5 + 0x1C) ; TIM capture/compare mode register 2,
+TIM5_CCER     EQU  (_TIM5 + 0x20) ; TIM capture/compare enable register,
+TIM5_CNT      EQU  (_TIM5 + 0x24) ; TIM counter register,
+TIM5_PSC      EQU  (_TIM5 + 0x28) ; TIM prescaler,
+TIM5_ARR      EQU  (_TIM5 + 0x2C) ; TIM auto-reload register,
+TIM5_CCR1     EQU  (_TIM5 + 0x34) ; TIM capture/compare register 1,
+TIM5_CCR2     EQU  (_TIM5 + 0x38) ; TIM capture/compare register 2,
+TIM5_CCR3     EQU  (_TIM5 + 0x3C) ; TIM capture/compare register 3,
+TIM5_CCR4     EQU  (_TIM5 + 0x40) ; TIM capture/compare register 4,
+TIM5_DCR      EQU  (_TIM5 + 0x48) ; TIM DMA control register,
+TIM5_DMAR     EQU  (_TIM5 + 0x4C) ; TIM DMA address for full transfer,
+TIM5_OR       EQU  (_TIM5 + 0x50) ; TIM option register,
+
+; Timer 6
+
+TIM6_CR1      EQU  (_TIM6 + 0x00) ; TIM control register 1,
+TIM6_CR2      EQU  (_TIM6 + 0x04) ; TIM control register 2,
+TIM6_SMCR     EQU  (_TIM6 + 0x08) ; TIM slave mode control register,
+TIM6_DIER     EQU  (_TIM6 + 0x0C) ; TIM DMA/interrupt enable register,
+TIM6_SR       EQU  (_TIM6 + 0x10) ; TIM status register,
+TIM6_EGR      EQU  (_TIM6 + 0x14) ; TIM event generation register,
+TIM6_CCMR1    EQU  (_TIM6 + 0x18) ; TIM capture/compare mode register 1,
+TIM6_CCMR2    EQU  (_TIM6 + 0x1C) ; TIM capture/compare mode register 2,
+TIM6_CCER     EQU  (_TIM6 + 0x20) ; TIM capture/compare enable register,
+TIM6_CNT      EQU  (_TIM6 + 0x24) ; TIM counter register,
+TIM6_PSC      EQU  (_TIM6 + 0x28) ; TIM prescaler,
+TIM6_ARR      EQU  (_TIM6 + 0x2C) ; TIM auto-reload register,
+TIM6_CCR1     EQU  (_TIM6 + 0x34) ; TIM capture/compare register 1,
+TIM6_CCR2     EQU  (_TIM6 + 0x38) ; TIM capture/compare register 2,
+TIM6_CCR3     EQU  (_TIM6 + 0x3C) ; TIM capture/compare register 3,
+TIM6_CCR4     EQU  (_TIM6 + 0x40) ; TIM capture/compare register 4,
+TIM6_DCR      EQU  (_TIM6 + 0x48) ; TIM DMA control register,
+TIM6_DMAR     EQU  (_TIM6 + 0x4C) ; TIM DMA address for full transfer,
+TIM6_OR       EQU  (_TIM6 + 0x50) ; TIM option register,
+
+; Timer 7
+
+TIM7_CR1      EQU  (_TIM7 + 0x00) ; TIM control register 1,
+TIM7_CR2      EQU  (_TIM7 + 0x04) ; TIM control register 2,
+TIM7_SMCR     EQU  (_TIM7 + 0x08) ; TIM slave mode control register,
+TIM7_DIER     EQU  (_TIM7 + 0x0C) ; TIM DMA/interrupt enable register,
+TIM7_SR       EQU  (_TIM7 + 0x10) ; TIM status register,
+TIM7_EGR      EQU  (_TIM7 + 0x14) ; TIM event generation register,
+TIM7_CCMR1    EQU  (_TIM7 + 0x18) ; TIM capture/compare mode register 1,
+TIM7_CCMR2    EQU  (_TIM7 + 0x1C) ; TIM capture/compare mode register 2,
+TIM7_CCER     EQU  (_TIM7 + 0x20) ; TIM capture/compare enable register,
+TIM7_CNT      EQU  (_TIM7 + 0x24) ; TIM counter register,
+TIM7_PSC      EQU  (_TIM7 + 0x28) ; TIM prescaler,
+TIM7_ARR      EQU  (_TIM7 + 0x2C) ; TIM auto-reload register,
+TIM7_CCR1     EQU  (_TIM7 + 0x34) ; TIM capture/compare register 1,
+TIM7_CCR2     EQU  (_TIM7 + 0x38) ; TIM capture/compare register 2,
+TIM7_CCR3     EQU  (_TIM7 + 0x3C) ; TIM capture/compare register 3,
+TIM7_CCR4     EQU  (_TIM7 + 0x40) ; TIM capture/compare register 4,
+TIM7_DCR      EQU  (_TIM7 + 0x48) ; TIM DMA control register,
+TIM7_DMAR     EQU  (_TIM7 + 0x4C) ; TIM DMA address for full transfer,
+TIM7_OR       EQU  (_TIM7 + 0x50) ; TIM option register,
+
+; Timer 9
+
+TIM9_CR1      EQU  (_TIM9 + 0x00) ; TIM control register 1,
+TIM9_CR2      EQU  (_TIM9 + 0x04) ; TIM control register 2,
+TIM9_SMCR     EQU  (_TIM9 + 0x08) ; TIM slave mode control register,
+TIM9_DIER     EQU  (_TIM9 + 0x0C) ; TIM DMA/interrupt enable register,
+TIM9_SR       EQU  (_TIM9 + 0x10) ; TIM status register,
+TIM9_EGR      EQU  (_TIM9 + 0x14) ; TIM event generation register,
+TIM9_CCMR1    EQU  (_TIM9 + 0x18) ; TIM capture/compare mode register 1,
+TIM9_CCMR2    EQU  (_TIM9 + 0x1C) ; TIM capture/compare mode register 2,
+TIM9_CCER     EQU  (_TIM9 + 0x20) ; TIM capture/compare enable register,
+TIM9_CNT      EQU  (_TIM9 + 0x24) ; TIM counter register,
+TIM9_PSC      EQU  (_TIM9 + 0x28) ; TIM prescaler,
+TIM9_ARR      EQU  (_TIM9 + 0x2C) ; TIM auto-reload register,
+TIM9_CCR1     EQU  (_TIM9 + 0x34) ; TIM capture/compare register 1,
+TIM9_CCR2     EQU  (_TIM9 + 0x38) ; TIM capture/compare register 2,
+TIM9_CCR3     EQU  (_TIM9 + 0x3C) ; TIM capture/compare register 3,
+TIM9_CCR4     EQU  (_TIM9 + 0x40) ; TIM capture/compare register 4,
+TIM9_DCR      EQU  (_TIM9 + 0x48) ; TIM DMA control register,
+TIM9_DMAR     EQU  (_TIM9 + 0x4C) ; TIM DMA address for full transfer,
+TIM9_OR       EQU  (_TIM9 + 0x50) ; TIM option register,
+
+; Timer 10
+
+TIM10_CR1     EQU  (_TIM10 + 0x00) ; TIM control register 1,
+TIM10_CR2     EQU  (_TIM10 + 0x04) ; TIM control register 2,
+TIM10_SMCR    EQU  (_TIM10 + 0x08) ; TIM slave mode control register,
+TIM10_DIER    EQU  (_TIM10 + 0x0C) ; TIM DMA/interrupt enable register,
+TIM10_SR      EQU  (_TIM10 + 0x10) ; TIM status register,
+TIM10_EGR     EQU  (_TIM10 + 0x14) ; TIM event generation register,
+TIM10_CCMR1   EQU  (_TIM10 + 0x18) ; TIM capture/compare mode register 1,
+TIM10_CCMR2   EQU  (_TIM10 + 0x1C) ; TIM capture/compare mode register 2,
+TIM10_CCER    EQU  (_TIM10 + 0x20) ; TIM capture/compare enable register,
+TIM10_CNT     EQU  (_TIM10 + 0x24) ; TIM counter register,
+TIM10_PSC     EQU  (_TIM10 + 0x28) ; TIM prescaler,
+TIM10_ARR     EQU  (_TIM10 + 0x2C) ; TIM auto-reload register,
+TIM10_CCR1    EQU  (_TIM10 + 0x34) ; TIM capture/compare register 1,
+TIM10_CCR2    EQU  (_TIM10 + 0x38) ; TIM capture/compare register 2,
+TIM10_CCR3    EQU  (_TIM10 + 0x3C) ; TIM capture/compare register 3,
+TIM10_CCR4    EQU  (_TIM10 + 0x40) ; TIM capture/compare register 4,
+TIM10_DCR     EQU  (_TIM10 + 0x48) ; TIM DMA control register,
+TIM10_DMAR    EQU  (_TIM10 + 0x4C) ; TIM DMA address for full transfer,
+TIM10_OR      EQU  (_TIM10 + 0x50) ; TIM option register,
+
+; Timer 11
+
+TIM11_CR1     EQU  (_TIM11 + 0x00) ; TIM control register 1,
+TIM11_CR2     EQU  (_TIM11 + 0x04) ; TIM control register 2,
+TIM11_SMCR    EQU  (_TIM11 + 0x08) ; TIM slave mode control register,
+TIM11_DIER    EQU  (_TIM11 + 0x0C) ; TIM DMA/interrupt enable register,
+TIM11_SR      EQU  (_TIM11 + 0x10) ; TIM status register,
+TIM11_EGR     EQU  (_TIM11 + 0x14) ; TIM event generation register,
+TIM11_CCMR1   EQU  (_TIM11 + 0x18) ; TIM capture/compare mode register 1,
+TIM11_CCMR2   EQU  (_TIM11 + 0x1C) ; TIM capture/compare mode register 2,
+TIM11_CCER    EQU  (_TIM11 + 0x20) ; TIM capture/compare enable register,
+TIM11_CNT     EQU  (_TIM11 + 0x24) ; TIM counter register,
+TIM11_PSC     EQU  (_TIM11 + 0x28) ; TIM prescaler,
+TIM11_ARR     EQU  (_TIM11 + 0x2C) ; TIM auto-reload register,
+TIM11_CCR1    EQU  (_TIM11 + 0x34) ; TIM capture/compare register 1,
+TIM11_CCR2    EQU  (_TIM11 + 0x38) ; TIM capture/compare register 2,
+TIM11_CCR3    EQU  (_TIM11 + 0x3C) ; TIM capture/compare register 3,
+TIM11_CCR4    EQU  (_TIM11 + 0x40) ; TIM capture/compare register 4,
+TIM11_DCR     EQU  (_TIM11 + 0x48) ; TIM DMA control register,
+TIM11_DMAR    EQU  (_TIM11 + 0x4C) ; TIM DMA address for full transfer,
+TIM11_OR      EQU  (_TIM11 + 0x50) ; TIM option register,
+
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;******************  Bit definition for TIM_CR1 register  *******************
 TIM_CR1_CEN                      EQU  0x0001            ; Counter enable

@@ -4,15 +4,46 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro SDIO
 ;
+;                          SD host Interface
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                          SD host Interface
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; SD host
+
+SDIO_POWER    EQU  (_SDIO + 0x00) ; SDIO power control register,
+SDIO_CLKCR    EQU  (_SDIO + 0x04) ; SDI clock control register,
+SDIO_ARG      EQU  (_SDIO + 0x08) ; SDIO argument register,
+SDIO_CMD      EQU  (_SDIO + 0x0C) ; SDIO command register,
+SDIO_RESPCMD  EQU  (_SDIO + 0x10) ; SDIO command response register,
+SDIO_RESP1    EQU  (_SDIO + 0x14) ; SDIO response 1 register,
+SDIO_RESP2    EQU  (_SDIO + 0x18) ; SDIO response 2 register,
+SDIO_RESP3    EQU  (_SDIO + 0x1C) ; SDIO response 3 register,
+SDIO_RESP4    EQU  (_SDIO + 0x20) ; SDIO response 4 register,
+SDIO_DTIMER   EQU  (_SDIO + 0x24) ; SDIO data timer register,
+SDIO_DLEN     EQU  (_SDIO + 0x28) ; SDIO data length register,
+SDIO_DCTRL    EQU  (_SDIO + 0x2C) ; SDIO data control register,
+SDIO_DCOUNT   EQU  (_SDIO + 0x30) ; SDIO data counter register,
+SDIO_STA      EQU  (_SDIO + 0x34) ; SDIO status register,
+SDIO_ICR      EQU  (_SDIO + 0x38) ; SDIO interrupt clear register,
+SDIO_MASK     EQU  (_SDIO + 0x3C) ; SDIO mask register,
+SDIO_FIFOCNT  EQU  (_SDIO + 0x48) ; SDIO FIFO counter register,
+SDIO_FIFO     EQU  (_SDIO + 0x80) ; SDIO data FIFO register,
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;*****************  Bit definition for SDIO_POWER register  *****************
 SDIO_POWER_PWRCTRL               EQU  0x03               ; PWRCTRL[1:0] bits (Power supply control bits)

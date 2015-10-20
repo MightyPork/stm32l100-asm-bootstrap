@@ -4,15 +4,62 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro SPI
 ;
+;                     Serial Peripheral Interface (SPI)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                     Serial Peripheral Interface (SPI)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; SPI 1
+
+SPI1_CR1      EQU  (_SPI1 + 0x00) ; SPI1 control register 1 (not used in I2S mode),
+SPI1_CR2      EQU  (_SPI1 + 0x04) ; SPI1 control register 2,
+SPI1_SR       EQU  (_SPI1 + 0x08) ; SPI1 status register,
+SPI1_DR       EQU  (_SPI1 + 0x0C) ; SPI1 data register,
+SPI1_CRCPR    EQU  (_SPI1 + 0x10) ; SPI1 CRC polynomial register (not used in I2S mode),
+SPI1_RXCRCR   EQU  (_SPI1 + 0x14) ; SPI1 RX CRC register (not used in I2S mode),
+SPI1_TXCRCR   EQU  (_SPI1 + 0x18) ; SPI1 TX CRC register (not used in I2S mode),
+SPI1_I2SCFGR  EQU  (_SPI1 + 0x1C) ; SPI1_I2S configuration register,
+SPI1_I2SPR    EQU  (_SPI1 + 0x20) ; SPI1_I2S prescaler register,
+
+; SPI 2
+
+SPI2_CR1     EQU  (_SPI2 + 0x00) ; SPI2 control register 1 (not used in I2S mode),
+SPI2_CR2     EQU  (_SPI2 + 0x04) ; SPI2 control register 2,
+SPI2_SR      EQU  (_SPI2 + 0x08) ; SPI2 status register,
+SPI2_DR      EQU  (_SPI2 + 0x0C) ; SPI2 data register,
+SPI2_CRCPR   EQU  (_SPI2 + 0x10) ; SPI2 CRC polynomial register (not used in I2S mode),
+SPI2_RXCRCR  EQU  (_SPI2 + 0x14) ; SPI2 RX CRC register (not used in I2S mode),
+SPI2_TXCRCR  EQU  (_SPI2 + 0x18) ; SPI2 TX CRC register (not used in I2S mode),
+SPI2_I2SCFGR EQU  (_SPI2 + 0x1C) ; SPI2_I2S configuration register,
+SPI2_I2SPR   EQU  (_SPI2 + 0x20) ; SPI2_I2S prescaler register,
+
+; SPI 3
+
+SPI3_CR1       EQU  (_SPI3 + 0x00) ; SPI3 control register 1 (not used in I2S mode),
+SPI3_CR2       EQU  (_SPI3 + 0x04) ; SPI3 control register 2,
+SPI3_SR        EQU  (_SPI3 + 0x08) ; SPI3 status register,
+SPI3_DR        EQU  (_SPI3 + 0x0C) ; SPI3 data register,
+SPI3_CRCPR     EQU  (_SPI3 + 0x10) ; SPI3 CRC polynomial register (not used in I2S mode),
+SPI3_RXCRCR    EQU  (_SPI3 + 0x14) ; SPI3 RX CRC register (not used in I2S mode),
+SPI3_TXCRCR    EQU  (_SPI3 + 0x18) ; SPI3 TX CRC register (not used in I2S mode),
+SPI3_I2SCFGR   EQU  (_SPI3 + 0x1C) ; SPI3_I2S configuration register,
+SPI3_I2SPR     EQU  (_SPI3 + 0x20) ; SPI3_I2S prescaler register,
+
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;******************  Bit definition for SPI_CR1 register  *******************
 SPI_CR1_CPHA                     EQU  0x0001            ; Clock Phase

@@ -4,15 +4,50 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro I2C
 ;
+;                   Inter-integrated Circuit Interface (I2C)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                   Inter-integrated Circuit Interface (I2C)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+
+; I2C 1
+
+I2C1_CR1       EQU  (_I2C1 + 0x00) ; I2C1 Control register 1,
+I2C1_CR2       EQU  (_I2C1 + 0x04) ; I2C1 Control register 2,
+I2C1_OAR1      EQU  (_I2C1 + 0x08) ; I2C1 Own address register 1,
+I2C1_OAR2      EQU  (_I2C1 + 0x0C) ; I2C1 Own address register 2,
+I2C1_DR        EQU  (_I2C1 + 0x10) ; I2C1 Data register,
+I2C1_SR1       EQU  (_I2C1 + 0x14) ; I2C1 Status register 1,
+I2C1_SR2       EQU  (_I2C1 + 0x18) ; I2C1 Status register 2,
+I2C1_CCR       EQU  (_I2C1 + 0x1C) ; I2C1 Clock control register,
+I2C1_TRISE     EQU  (_I2C1 + 0x20) ; I2C1 TRISE register,
+
+; I2C 2
+
+I2C2_CR1       EQU  (_I2C2 + 0x00) ; I2C2 Control register 1,
+I2C2_CR2       EQU  (_I2C2 + 0x04) ; I2C2 Control register 2,
+I2C2_OAR1      EQU  (_I2C2 + 0x08) ; I2C2 Own address register 1,
+I2C2_OAR2      EQU  (_I2C2 + 0x0C) ; I2C2 Own address register 2,
+I2C2_DR        EQU  (_I2C2 + 0x10) ; I2C2 Data register,
+I2C2_SR1       EQU  (_I2C2 + 0x14) ; I2C2 Status register 1,
+I2C2_SR2       EQU  (_I2C2 + 0x18) ; I2C2 Status register 2,
+I2C2_CCR       EQU  (_I2C2 + 0x1C) ; I2C2 Clock control register,
+I2C2_TRISE     EQU  (_I2C2 + 0x20) ; I2C2 TRISE register,
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;******************  Bit definition for I2C_CR1 register  *******************
 I2C_CR1_PE                       EQU  0x0001            ; Peripheral Enable

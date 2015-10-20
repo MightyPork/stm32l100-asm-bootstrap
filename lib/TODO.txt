@@ -1,0 +1,8 @@
+
+Missing registers in FSMC
+
+Missing registers in USB
+
+maybe others I didn't notice.
+
+-mightypork

@@ -4,15 +4,77 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro NVIC (system preruseni)
 ;
+;               Nested Vectored Interrupt Controller (NVIC)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;               Nested Vectored Interrupt Controller (NVIC)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; NVIC
+
+NVIC_ISER0         EQU  (_NVIC + 0x000) ; (R/W)  Interrupt Set Enable Register
+NVIC_ISER1         EQU  (_NVIC + 0x004) ; (R/W)  Interrupt Set Enable Register
+NVIC_ISER2         EQU  (_NVIC + 0x008) ; (R/W)  Interrupt Set Enable Register
+NVIC_ISER3         EQU  (_NVIC + 0x00C) ; (R/W)  Interrupt Set Enable Register
+NVIC_ISER4         EQU  (_NVIC + 0x010) ; (R/W)  Interrupt Set Enable Register
+NVIC_ISER5         EQU  (_NVIC + 0x014) ; (R/W)  Interrupt Set Enable Register
+NVIC_ISER6         EQU  (_NVIC + 0x018) ; (R/W)  Interrupt Set Enable Register
+NVIC_ISER7         EQU  (_NVIC + 0x01C) ; (R/W)  Interrupt Set Enable Register
+NVIC_ISER8         EQU  (_NVIC + 0x020) ; (R/W)  Interrupt Set Enable Register
+
+NVIC_ICER0         EQU  (_NVIC + 0x080) ; (R/W)  Interrupt Clear Enable Register
+NVIC_ICER1         EQU  (_NVIC + 0x084) ; (R/W)  Interrupt Clear Enable Register
+NVIC_ICER2         EQU  (_NVIC + 0x088) ; (R/W)  Interrupt Clear Enable Register
+NVIC_ICER3         EQU  (_NVIC + 0x08C) ; (R/W)  Interrupt Clear Enable Register
+NVIC_ICER4         EQU  (_NVIC + 0x090) ; (R/W)  Interrupt Clear Enable Register
+NVIC_ICER5         EQU  (_NVIC + 0x094) ; (R/W)  Interrupt Clear Enable Register
+NVIC_ICER6         EQU  (_NVIC + 0x098) ; (R/W)  Interrupt Clear Enable Register
+NVIC_ICER7         EQU  (_NVIC + 0x09C) ; (R/W)  Interrupt Clear Enable Register
+
+NVIC_ISPR0         EQU  (_NVIC + 0x100) ; (R/W)  Interrupt Set Pending Register
+NVIC_ISPR1         EQU  (_NVIC + 0x104) ; (R/W)  Interrupt Set Pending Register
+NVIC_ISPR2         EQU  (_NVIC + 0x108) ; (R/W)  Interrupt Set Pending Register
+NVIC_ISPR3         EQU  (_NVIC + 0x10C) ; (R/W)  Interrupt Set Pending Register
+NVIC_ISPR4         EQU  (_NVIC + 0x110) ; (R/W)  Interrupt Set Pending Register
+NVIC_ISPR5         EQU  (_NVIC + 0x114) ; (R/W)  Interrupt Set Pending Register
+NVIC_ISPR6         EQU  (_NVIC + 0x118) ; (R/W)  Interrupt Set Pending Register
+NVIC_ISPR7         EQU  (_NVIC + 0x11C) ; (R/W)  Interrupt Set Pending Register
+
+NVIC_ICPR0         EQU  (_NVIC + 0x180) ; (R/W)  Interrupt Clear Pending Register
+NVIC_ICPR1         EQU  (_NVIC + 0x184) ; (R/W)  Interrupt Clear Pending Register
+NVIC_ICPR2         EQU  (_NVIC + 0x188) ; (R/W)  Interrupt Clear Pending Register
+NVIC_ICPR3         EQU  (_NVIC + 0x18C) ; (R/W)  Interrupt Clear Pending Register
+NVIC_ICPR4         EQU  (_NVIC + 0x190) ; (R/W)  Interrupt Clear Pending Register
+NVIC_ICPR5         EQU  (_NVIC + 0x194) ; (R/W)  Interrupt Clear Pending Register
+NVIC_ICPR6         EQU  (_NVIC + 0x198) ; (R/W)  Interrupt Clear Pending Register
+NVIC_ICPR7         EQU  (_NVIC + 0x19C) ; (R/W)  Interrupt Clear Pending Register
+
+NVIC_IABR0         EQU  (_NVIC + 0x200) ; (R/W)  Interrupt Active bit Register
+NVIC_IABR1         EQU  (_NVIC + 0x204) ; (R/W)  Interrupt Active bit Register
+NVIC_IABR2         EQU  (_NVIC + 0x208) ; (R/W)  Interrupt Active bit Register
+NVIC_IABR3         EQU  (_NVIC + 0x20C) ; (R/W)  Interrupt Active bit Register
+NVIC_IABR4         EQU  (_NVIC + 0x210) ; (R/W)  Interrupt Active bit Register
+NVIC_IABR5         EQU  (_NVIC + 0x214) ; (R/W)  Interrupt Active bit Register
+NVIC_IABR6         EQU  (_NVIC + 0x218) ; (R/W)  Interrupt Active bit Register
+NVIC_IABR7         EQU  (_NVIC + 0x21C) ; (R/W)  Interrupt Active bit Register
+
+NVIC_IP            EQU  (_NVIC + 0x300) ; (R/W)  Interrupt Priority Register (8Bit wide) +240
+NVIC_STIR          EQU  (_NVIC + 0xE00) ; ( /W)  Software Trigger Interrupt Register
+
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;*****************  Bit definition for NVIC_ISER register  ******************
 NVIC_ISER_SETENA                 EQU  0xFFFFFFFF        ; Interrupt set enable bits

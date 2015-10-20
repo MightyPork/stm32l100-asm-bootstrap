@@ -4,15 +4,30 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro PWR (napajeni, sleep...)
 ;
+;                          Power Control (PWR)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                          Power Control (PWR)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; Power control registers
+
+PWR_CR         EQU  (_PWR + 0x00) ; PWR power control register,
+PWR_CSR        EQU  (_PWR + 0x04) ; PWR power control/status register,
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;*******************  Bit definition for PWR_CR register  *******************
 PWR_CR_LPSDSR                    EQU  0x0001     ; Low-power deepsleep/sleep/low power run

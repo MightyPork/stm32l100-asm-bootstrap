@@ -4,15 +4,27 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro USB
 ;
+;                     Universal Serial Bus (USB)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                     Universal Serial Bus (USB)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; TODO where are the registers??
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ; Endpoint-specific registers
 ;******************  Bit definition for USB_EP0R register  ******************

@@ -1,17 +1,34 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_EXTI.S
+; SOUBOR : INI_EXTI.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro EXTI (ext. interrupt)
 ;
+;                  External Interrupt/Event Controller (EXTI)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
+;****************************************************************************
+;*
+;*                               REGISTERS
+;*
+;****************************************************************************
+
+; External interrupt control registers
+
+EXTI_IMR     EQU  (_EXTI + 0x00) ; EXTI interrupt mask register,
+EXTI_EMR     EQU  (_EXTI + 0x04) ; EXTI event mask register,
+EXTI_RTSR    EQU  (_EXTI + 0x08) ; EXTI rising edge trigger selection register,
+EXTI_FTSR    EQU  (_EXTI + 0x0C) ; EXTI Falling edge trigger selection register,
+EXTI_SWIER   EQU  (_EXTI + 0x10) ; EXTI software interrupt event register,
+EXTI_PR      EQU  (_EXTI + 0x14) ; EXTI pending register,
+
 
 ;****************************************************************************
-;
-;                  External Interrupt/Event Controller (EXTI)
-;
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
 ;****************************************************************************
 
 ;******************  Bit definition for EXTI_IMR register  ******************

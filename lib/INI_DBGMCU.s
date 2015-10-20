@@ -4,15 +4,32 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro DBGMCU (Debug MCU control)
 ;
+;                           Debug MCU (DBGMCU)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                           Debug MCU (DBGMCU)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; DBGMCU
+
+DBGMCU_IDCODE      EQU  (_DBGMCU + 0x00) ; MCU device ID code,
+DBGMCU_CR          EQU  (_DBGMCU + 0x04) ; Debug MCU configuration register,
+DBGMCU_APB1FZ      EQU  (_DBGMCU + 0x08) ; Debug MCU APB1 freeze register,
+DBGMCU_APB2FZ      EQU  (_DBGMCU + 0x0C) ; Debug MCU APB2 freeze register,
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;***************  Bit definition for DBGMCU_IDCODE register  ****************
 DBGMCU_IDCODE_DEV_ID             EQU  0x00000FFF        ; Device Identifier

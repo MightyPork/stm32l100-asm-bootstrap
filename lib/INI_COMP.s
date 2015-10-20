@@ -4,15 +4,29 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro COMP (analogovy komparator)
 ;
+;                      Analog Comparators (COMP)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                      Analog Comparators (COMP)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; Comparator
+
+COMP_CSR       EQU  (_COMP + 0x00) ; COMP comparator control and status register,
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;*****************  Bit definition for COMP_CSR register  *******************
 COMP_CSR_10KPU                   EQU  0x00000001        ; 10K pull-up resistor

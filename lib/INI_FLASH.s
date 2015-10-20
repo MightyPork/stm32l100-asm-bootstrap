@@ -4,16 +4,53 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro FLASH
 ;
+;                FLASH, DATA EEPROM and Option Bytes Registers
+;                        (FLASH, DATA_EEPROM, OB)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                FLASH, DATA EEPROM and Option Bytes Registers
-;                     EQU  (FLASH, DATA_EEPROM, OB)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+
+; FLASH registers
+
+FLASH_ACR        EQU  (_FLASH + 0x00) ; Access control register,
+FLASH_PECR       EQU  (_FLASH + 0x04) ; Program/erase control register,
+FLASH_PDKEYR     EQU  (_FLASH + 0x08) ; Power down key register,
+FLASH_PEKEYR     EQU  (_FLASH + 0x0c) ; Program/erase key register,
+FLASH_PRGKEYR    EQU  (_FLASH + 0x10) ; Program memory key register,
+FLASH_OPTKEYR    EQU  (_FLASH + 0x14) ; Option byte key register,
+FLASH_SR         EQU  (_FLASH + 0x18) ; Status register,
+FLASH_OBR        EQU  (_FLASH + 0x1c) ; Option byte register,
+FLASH_WRPR       EQU  (_FLASH + 0x20) ; Write protection register,
+FLASH_WRPR1      EQU  (_FLASH + 0x28) ; Write protection register 1,
+FLASH_WRPR2      EQU  (_FLASH + 0x2C) ; Write protection register 2,
+
+; FLASH option bytes
+
+OB_RDP           EQU  (_OB + 0x00) ; Read protection register,
+OB_USER          EQU  (_OB + 0x04) ; user register,
+OB_WRP01         EQU  (_OB + 0x08) ; write protection register 0 1,
+OB_WRP23         EQU  (_OB + 0x0C) ; write protection register 2 3,
+OB_WRP45         EQU  (_OB + 0x10) ; write protection register 4 5,
+OB_WRP67         EQU  (_OB + 0x14) ; write protection register 6 7,
+OB_WRP89         EQU  (_OB + 0x18) ; write protection register 8 9,
+OB_WRP1011       EQU  (_OB + 0x1C) ; write protection register 10 11,
+
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;******************  Bit definition for FLASH_ACR register  *****************
 FLASH_ACR_LATENCY                EQU  0x00000001        ; Latency

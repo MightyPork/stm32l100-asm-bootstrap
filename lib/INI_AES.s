@@ -2,19 +2,44 @@
 ; SOUBOR : INI_BITS_AES.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
-; POPIS  : Bitove masky ridicich registru pro AES (crypto)
+; POPIS  : Bitove masky ridicich registru pro AES (crypto);
+;          ! Modul je pouze v STM32L162 !
 ;
-; ! Modul je pouze v STM32L162 !
+;                       Advanced Encryption Standard (AES)
 ;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                       Advanced Encryption Standard (AES)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+
+; AES crypto module
+
+AES_CR             EQU  (_AES + 0x00) ; AES control register,
+AES_SR             EQU  (_AES + 0x04) ; AES status register,
+AES_DINR_REG       EQU  (_AES + 0x08) ; AES data input register,
+AES_DOUTR_REG      EQU  (_AES + 0x0C) ; AES data output register,
+AES_KEYR0_REG      EQU  (_AES + 0x10) ; AES key register 0,
+AES_KEYR1_REG      EQU  (_AES + 0x14) ; AES key register 1,
+AES_KEYR2_REG      EQU  (_AES + 0x18) ; AES key register 2,
+AES_KEYR3_REG      EQU  (_AES + 0x1C) ; AES key register 3,
+AES_IVR0_REG       EQU  (_AES + 0x20) ; AES initialization vector register 0,
+AES_IVR1_REG       EQU  (_AES + 0x24) ; AES initialization vector register 1,
+AES_IVR2_REG       EQU  (_AES + 0x28) ; AES initialization vector register 2,
+AES_IVR3_REG       EQU  (_AES + 0x2C) ; AES initialization vector register 3,
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;******************  Bit definition for AES_CR register  ********************
 AES_CR_EN                        EQU  0x00000001        ; AES Enable

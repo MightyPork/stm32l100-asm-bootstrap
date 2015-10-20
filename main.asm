@@ -14,15 +14,14 @@
 ;* Include library files
 ;***************************************************************************************************
 
-		; Register addresses
+		; Base library file
 		GET		lib/INI_BASE.s
-		GET		lib/INI_REGS.s                     ;deprecated TODO remove when definitions moved to other files
 
-		; Bit presets
+		; Peripheral modules
 		GET		lib/INI_GPIO.s
 		GET		lib/INI_SYSTICK.s
-		GET		lib/INI_BITS_RCC.s                 ;legacy FIXME
-		GET		lib/INI_BITS_FLASH.s               ;legacy FIXME
+		GET		lib/INI_RCC.s
+		GET		lib/INI_FLASH.s
 
 
 ;***************************************************************************************************

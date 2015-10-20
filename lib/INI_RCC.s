@@ -4,15 +4,43 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro RCC (nastaveni hodin)
 ;
+;                      Reset and Clock Control (RCC)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
+;****************************************************************************
+;*
+;*                               REGISTERS
+;*
+;****************************************************************************
+
+
+; RCC registers
+
+RCC_CR           EQU  (_RCC + 0x00) ; RCC clock control register,
+RCC_ICSCR        EQU  (_RCC + 0x04) ; RCC Internal clock sources calibration register,
+RCC_CFGR         EQU  (_RCC + 0x08) ; RCC Clock configuration register,
+RCC_CIR          EQU  (_RCC + 0x0C) ; RCC Clock interrupt register,
+RCC_AHBRSTR      EQU  (_RCC + 0x10) ; RCC AHB peripheral reset register,
+RCC_APB2RSTR     EQU  (_RCC + 0x14) ; RCC APB2 peripheral reset register,
+RCC_APB1RSTR     EQU  (_RCC + 0x18) ; RCC APB1 peripheral reset register,
+RCC_AHBENR       EQU  (_RCC + 0x1C) ; RCC AHB peripheral clock enable register,
+RCC_APB2ENR      EQU  (_RCC + 0x20) ; RCC APB2 peripheral clock enable register,
+RCC_APB1ENR      EQU  (_RCC + 0x24) ; RCC APB1 peripheral clock enable register,
+RCC_AHBLPENR     EQU  (_RCC + 0x28) ; RCC AHB peripheral clock enable in low power mode register,
+RCC_APB2LPENR    EQU  (_RCC + 0x2C) ; RCC APB2 peripheral clock enable in low power mode register,
+RCC_APB1LPENR    EQU  (_RCC + 0x30) ; RCC APB1 peripheral clock enable in low power mode register,
+RCC_CSR          EQU  (_RCC + 0x34) ; RCC Control/status register,
+
+
 
 ;****************************************************************************
-;
-;                      Reset and Clock Control (RCC)
-;
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
 ;****************************************************************************
+
 
 ;*******************  Bit definition for RCC_CR register  *******************
 RCC_CR_HSION                     EQU  0x00000001        ; Internal High Speed clock enable

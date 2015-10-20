@@ -4,14 +4,35 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro FSMC (ext. memory communication)
 ;
+;                       Flexible Static Memory Controller
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                       Flexible Static Memory Controller
-;
+;*
+;*                               REGISTERS
+;*
+;****************************************************************************
+
+; FSMC
+_FSMC_B1        EQU  (_FSMC + 0x0000) ; FSMC Bank1 registers base address
+_FSMC_B1E       EQU  (_FSMC + 0x0104) ; FSMC Bank1E registers base address
+
+; Bank 1
+FSMC_B1_BTCR    EQU  (_FSMC_B1 + 0x00) ; NOR/PSRAM chip-select control register(BCR) and chip-select timing register(BTR),
+
+; Bank 2
+FSMC_B1E_BWTR   EQU  (_FSMC_B1E + 0x104) ; NOR/PSRAM write timing registers,
+
+; TODO missing some registers
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
 ;****************************************************************************
 
 ;*****************  Bit definition for FSMC_BCR1 register  ******************

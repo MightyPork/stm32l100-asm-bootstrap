@@ -4,15 +4,50 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro RI (analogove propojky)
 ;
+;                       Routing Interface (RI)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                       Routing Interface (RI)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; RI
+
+RI_ICR         EQU  (_RI + 0x04) ; RI input capture register,
+RI_ASCR1       EQU  (_RI + 0x08) ; RI analog switches control register,
+RI_ASCR2       EQU  (_RI + 0x0C) ; RI analog switch control register 2,
+RI_HYSCR1      EQU  (_RI + 0x10) ; RI hysteresis control register 1,
+RI_HYSCR2      EQU  (_RI + 0x14) ; RI Hysteresis control register 2,
+RI_HYSCR3      EQU  (_RI + 0x18) ; RI Hysteresis control register 3,
+RI_HYSCR4      EQU  (_RI + 0x1C) ; RI Hysteresis control register 4,
+RI_ASMR1       EQU  (_RI + 0x20) ; RI Analog switch mode register 1,
+RI_CMR1        EQU  (_RI + 0x24) ; RI Channel mask register 1,
+RI_CICR1       EQU  (_RI + 0x28) ; RI Channel identification for capture register 1,
+RI_ASMR2       EQU  (_RI + 0x2C) ; RI Analog switch mode register 2,
+RI_CMR2        EQU  (_RI + 0x30) ; RI Channel mask register 2,
+RI_CICR2       EQU  (_RI + 0x34) ; RI Channel identification for capture register 2,
+RI_ASMR3       EQU  (_RI + 0x38) ; RI Analog switch mode register 3,
+RI_CMR3        EQU  (_RI + 0x3C) ; RI Channel mask register 3,
+RI_CICR3       EQU  (_RI + 0x40) ; RI Channel identification for capture register3 ,
+RI_ASMR4       EQU  (_RI + 0x44) ; RI Analog switch mode register 4,
+RI_CMR4        EQU  (_RI + 0x48) ; RI Channel mask register 4,
+RI_CICR4       EQU  (_RI + 0x4C) ; RI Channel identification for capture register 4,
+RI_ASMR5       EQU  (_RI + 0x50) ; RI Analog switch mode register 5,
+RI_CMR5        EQU  (_RI + 0x54) ; RI Channel mask register 5,
+RI_CICR5       EQU  (_RI + 0x58) ; RI Channel identification for capture register 5,
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;*******************  Bit definition for RI_ICR register  *******************
 RI_ICR_IC1Z                 EQU  0x0000000F ; IC1Z[3:0] bits (Input Capture 1 select bits)

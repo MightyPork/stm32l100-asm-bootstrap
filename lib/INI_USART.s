@@ -4,15 +4,76 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro USART
 ;
+;      Universal Synchronous Asynchronous Receiver Transmitter (USART)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;      Universal Synchronous Asynchronous Receiver Transmitter (USART)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; USART 1
+
+USART1_SR        EQU  (_USART1 + 0x00) ; USART1 Status register,
+USART1_DR        EQU  (_USART1 + 0x04) ; USART1 Data register,
+USART1_BRR       EQU  (_USART1 + 0x08) ; USART1 Baud rate register,
+USART1_CR1       EQU  (_USART1 + 0x0C) ; USART1 Control register 1,
+USART1_CR2       EQU  (_USART1 + 0x10) ; USART1 Control register 2,
+USART1_CR3       EQU  (_USART1 + 0x14) ; USART1 Control register 3,
+USART1_GTPR      EQU  (_USART1 + 0x18) ; USART1 Guard time and prescaler register,
+
+; USART 2
+
+USART2_SR      EQU  (_USART2 + 0x00) ; USART2 Status register,
+USART2_DR      EQU  (_USART2 + 0x04) ; USART2 Data register,
+USART2_BRR     EQU  (_USART2 + 0x08) ; USART2 Baud rate register,
+USART2_CR1     EQU  (_USART2 + 0x0C) ; USART2 Control register 1,
+USART2_CR2     EQU  (_USART2 + 0x10) ; USART2 Control register 2,
+USART2_CR3     EQU  (_USART2 + 0x14) ; USART2 Control register 3,
+USART2_GTPR    EQU  (_USART2 + 0x18) ; USART2 Guard time and prescaler register,
+
+; USART 3
+
+USART3_SR      EQU  (_USART3 + 0x00) ; USART3 Status register,
+USART3_DR      EQU  (_USART3 + 0x04) ; USART3 Data register,
+USART3_BRR     EQU  (_USART3 + 0x08) ; USART3 Baud rate register,
+USART3_CR1     EQU  (_USART3 + 0x0C) ; USART3 Control register 1,
+USART3_CR2     EQU  (_USART3 + 0x10) ; USART3 Control register 2,
+USART3_CR3     EQU  (_USART3 + 0x14) ; USART3 Control register 3,
+USART3_GTPR    EQU  (_USART3 + 0x18) ; USART3 Guard time and prescaler register,
+
+; USART 4
+
+UART4_SR       EQU  (_UART4 + 0x00) ; UART4 Status register,
+UART4_DR       EQU  (_UART4 + 0x04) ; UART4 Data register,
+UART4_BRR      EQU  (_UART4 + 0x08) ; UART4 Baud rate register,
+UART4_CR1      EQU  (_UART4 + 0x0C) ; UART4 Control register 1,
+UART4_CR2      EQU  (_UART4 + 0x10) ; UART4 Control register 2,
+UART4_CR3      EQU  (_UART4 + 0x14) ; UART4 Control register 3,
+UART4_GTPR     EQU  (_UART4 + 0x18) ; UART4 Guard time and prescaler register,
+
+; USART 5
+
+UART5_SR       EQU  (_UART5 + 0x00) ; UART5 Status register,
+UART5_DR       EQU  (_UART5 + 0x04) ; UART5 Data register,
+UART5_BRR      EQU  (_UART5 + 0x08) ; UART5 Baud rate register,
+UART5_CR1      EQU  (_UART5 + 0x0C) ; UART5 Control register 1,
+UART5_CR2      EQU  (_UART5 + 0x10) ; UART5 Control register 2,
+UART5_CR3      EQU  (_UART5 + 0x14) ; UART5 Control register 3,
+UART5_GTPR     EQU  (_UART5 + 0x18) ; UART5 Guard time and prescaler register,
+
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;******************  Bit definition for USART_SR register  ******************
 USART_SR_PE                      EQU  0x0001            ; Parity Error

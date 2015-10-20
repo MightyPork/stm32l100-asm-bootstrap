@@ -4,15 +4,116 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro DMA (Direct memory access)
 ;
+;                           DMA Controller (DMA)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                           DMA Controller (DMA)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+
+; DMA 1
+
+; Status registers
+DMA1_ISR         EQU  (_DMA1 + 0x00) ; DMA interrupt status register,
+DMA1_IFCR        EQU  (_DMA1 + 0x04) ; DMA interrupt flag clear register,
+
+; Channel bases
+_DMA1_CH1 EQU  (_DMA1 + 0x0008)
+_DMA1_CH2 EQU  (_DMA1 + 0x001C)
+_DMA1_CH3 EQU  (_DMA1 + 0x0030)
+_DMA1_CH4 EQU  (_DMA1 + 0x0044)
+_DMA1_CH5 EQU  (_DMA1 + 0x0058)
+_DMA1_CH6 EQU  (_DMA1 + 0x006C)
+_DMA1_CH7 EQU  (_DMA1 + 0x0080)
+
+DMA1_CH1_CCR       EQU  (_DMA1_CH1 + 0x00) ; DMA channel x configuration register
+DMA1_CH1_CNDTR     EQU  (_DMA1_CH1 + 0x04) ; DMA channel x number of data register
+DMA1_CH1_CPAR      EQU  (_DMA1_CH1 + 0x08) ; DMA channel x peripheral address register
+DMA1_CH1_CMAR      EQU  (_DMA1_CH1 + 0x0C) ; DMA channel x memory address register
+
+DMA1_CH2_CCR       EQU  (_DMA1_CH2 + 0x00) ; DMA channel x configuration register
+DMA1_CH2_CNDTR     EQU  (_DMA1_CH2 + 0x04) ; DMA channel x number of data register
+DMA1_CH2_CPAR      EQU  (_DMA1_CH2 + 0x08) ; DMA channel x peripheral address register
+DMA1_CH2_CMAR      EQU  (_DMA1_CH2 + 0x0C) ; DMA channel x memory address register
+
+DMA1_CH3_CCR       EQU  (_DMA1_CH3 + 0x00) ; DMA channel x configuration register
+DMA1_CH3_CNDTR     EQU  (_DMA1_CH3 + 0x04) ; DMA channel x number of data register
+DMA1_CH3_CPAR      EQU  (_DMA1_CH3 + 0x08) ; DMA channel x peripheral address register
+DMA1_CH3_CMAR      EQU  (_DMA1_CH3 + 0x0C) ; DMA channel x memory address register
+
+DMA1_CH4_CCR       EQU  (_DMA1_CH4 + 0x00) ; DMA channel x configuration register
+DMA1_CH4_CNDTR     EQU  (_DMA1_CH4 + 0x04) ; DMA channel x number of data register
+DMA1_CH4_CPAR      EQU  (_DMA1_CH4 + 0x08) ; DMA channel x peripheral address register
+DMA1_CH4_CMAR      EQU  (_DMA1_CH4 + 0x0C) ; DMA channel x memory address register
+
+DMA1_CH5_CCR       EQU  (_DMA1_CH5 + 0x00) ; DMA channel x configuration register
+DMA1_CH5_CNDTR     EQU  (_DMA1_CH5 + 0x04) ; DMA channel x number of data register
+DMA1_CH5_CPAR      EQU  (_DMA1_CH5 + 0x08) ; DMA channel x peripheral address register
+DMA1_CH5_CMAR      EQU  (_DMA1_CH5 + 0x0C) ; DMA channel x memory address register
+
+DMA1_CH6_CCR       EQU  (_DMA1_CH6 + 0x00) ; DMA channel x configuration register
+DMA1_CH6_CNDTR     EQU  (_DMA1_CH6 + 0x04) ; DMA channel x number of data register
+DMA1_CH6_CPAR      EQU  (_DMA1_CH6 + 0x08) ; DMA channel x peripheral address register
+DMA1_CH6_CMAR      EQU  (_DMA1_CH6 + 0x0C) ; DMA channel x memory address register
+
+DMA1_CH7_CCR       EQU  (_DMA1_CH7 + 0x00) ; DMA channel x configuration register
+DMA1_CH7_CNDTR     EQU  (_DMA1_CH7 + 0x04) ; DMA channel x number of data register
+DMA1_CH7_CPAR      EQU  (_DMA1_CH7 + 0x08) ; DMA channel x peripheral address register
+DMA1_CH7_CMAR      EQU  (_DMA1_CH7 + 0x0C) ; DMA channel x memory address register
+
+
+; DMA 2
+
+; Status registers
+DMA2_ISR         EQU  (_DMA2 + 0x00) ; DMA interrupt status register,
+DMA2_IFCR        EQU  (_DMA2 + 0x04) ; DMA interrupt flag clear register,
+
+; Channel bases
+_DMA2_CH1 EQU  (_DMA2 + 0x0008)
+_DMA2_CH2 EQU  (_DMA2 + 0x001C)
+_DMA2_CH3 EQU  (_DMA2 + 0x0030)
+_DMA2_CH4 EQU  (_DMA2 + 0x0044)
+_DMA2_CH5 EQU  (_DMA2 + 0x0058)
+
+DMA2_CH1_CCR       EQU  (_DMA2_CH1 + 0x00) ; DMA channel x configuration register
+DMA2_CH1_CNDTR     EQU  (_DMA2_CH1 + 0x04) ; DMA channel x number of data register
+DMA2_CH1_CPAR      EQU  (_DMA2_CH1 + 0x08) ; DMA channel x peripheral address register
+DMA2_CH1_CMAR      EQU  (_DMA2_CH1 + 0x0C) ; DMA channel x memory address register
+
+DMA2_CH2_CCR       EQU  (_DMA2_CH2 + 0x00) ; DMA channel x configuration register
+DMA2_CH2_CNDTR     EQU  (_DMA2_CH2 + 0x04) ; DMA channel x number of data register
+DMA2_CH2_CPAR      EQU  (_DMA2_CH2 + 0x08) ; DMA channel x peripheral address register
+DMA2_CH2_CMAR      EQU  (_DMA2_CH2 + 0x0C) ; DMA channel x memory address register
+
+DMA2_CH3_CCR       EQU  (_DMA2_CH3 + 0x00) ; DMA channel x configuration register
+DMA2_CH3_CNDTR     EQU  (_DMA2_CH3 + 0x04) ; DMA channel x number of data register
+DMA2_CH3_CPAR      EQU  (_DMA2_CH3 + 0x08) ; DMA channel x peripheral address register
+DMA2_CH3_CMAR      EQU  (_DMA2_CH3 + 0x0C) ; DMA channel x memory address register
+
+DMA2_CH4_CCR       EQU  (_DMA2_CH4 + 0x00) ; DMA channel x configuration register
+DMA2_CH4_CNDTR     EQU  (_DMA2_CH4 + 0x04) ; DMA channel x number of data register
+DMA2_CH4_CPAR      EQU  (_DMA2_CH4 + 0x08) ; DMA channel x peripheral address register
+DMA2_CH4_CMAR      EQU  (_DMA2_CH4 + 0x0C) ; DMA channel x memory address register
+
+DMA2_CH5_CCR       EQU  (_DMA2_CH5 + 0x00) ; DMA channel x configuration register
+DMA2_CH5_CNDTR     EQU  (_DMA2_CH5 + 0x04) ; DMA channel x number of data register
+DMA2_CH5_CPAR      EQU  (_DMA2_CH5 + 0x08) ; DMA channel x peripheral address register
+DMA2_CH5_CMAR      EQU  (_DMA2_CH5 + 0x0C) ; DMA channel x memory address register
+
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;******************  Bit definition for DMA_ISR register  *******************
 DMA_ISR_GIF1                     EQU  0x00000001        ; Channel 1 Global interrupt flag

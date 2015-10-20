@@ -4,15 +4,34 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro SYSCFG (EXTI routing atd.)
 ;
+;                       System Configuration (SYSCFG)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                       System Configuration (SYSCFG)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+; Syscfg
+
+SYSCFG_MEMRMP    EQU  (_SYSCFG + 0x00) ; SYSCFG memory remap register,
+SYSCFG_PMC       EQU  (_SYSCFG + 0x04) ; SYSCFG peripheral mode configuration register,
+SYSCFG_EXTICR1   EQU  (_SYSCFG + 0x08) ; SYSCFG external interrupt configuration registers,
+SYSCFG_EXTICR2   EQU  (_SYSCFG + 0x0C) ; SYSCFG external interrupt configuration registers,
+SYSCFG_EXTICR3   EQU  (_SYSCFG + 0x10) ; SYSCFG external interrupt configuration registers,
+SYSCFG_EXTICR4   EQU  (_SYSCFG + 0x14) ; SYSCFG external interrupt configuration registers,
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;****************  Bit definition for SYSCFG_MEMRMP register  ***************
 SYSCFG_MEMRMP_MEM_MODE       EQU  0x00000003 ; SYSCFG_Memory Remap Config

@@ -4,15 +4,59 @@
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro ADC
 ;
+;                      Analog to Digital Converter (ADC)
+;
 ; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
 ;********************************************************************************
 
 
 ;****************************************************************************
-;
-;                      Analog to Digital Converter (ADC)
-;
+;*
+;*                               REGISTERS
+;*
 ;****************************************************************************
+
+
+; ADC common config
+
+ADC_CSR      EQU  (_ADCC + 0x000) ; ADC common status register,
+ADC_CCR      EQU  (_ADCC + 0x004) ; ADC common control register,
+
+; ADC1
+
+ADC_SR       EQU  (_ADC1 + 0x00) ; ADC status register,
+ADC_CR1      EQU  (_ADC1 + 0x04) ; ADC control register 1,
+ADC_CR2      EQU  (_ADC1 + 0x08) ; ADC control register 2,
+ADC_SMPR1    EQU  (_ADC1 + 0x0C) ; ADC sample time register 1,
+ADC_SMPR2    EQU  (_ADC1 + 0x10) ; ADC sample time register 2,
+ADC_SMPR3    EQU  (_ADC1 + 0x14) ; ADC sample time register 3,
+ADC_JOFR1    EQU  (_ADC1 + 0x18) ; ADC injected channel data offset register 1,
+ADC_JOFR2    EQU  (_ADC1 + 0x1C) ; ADC injected channel data offset register 2,
+ADC_JOFR3    EQU  (_ADC1 + 0x20) ; ADC injected channel data offset register 3,
+ADC_JOFR4    EQU  (_ADC1 + 0x24) ; ADC injected channel data offset register 4,
+ADC_HTR      EQU  (_ADC1 + 0x28) ; ADC watchdog higher threshold register,
+ADC_LTR      EQU  (_ADC1 + 0x2C) ; ADC watchdog lower threshold register,
+ADC_SQR1     EQU  (_ADC1 + 0x30) ; ADC regular sequence register 1,
+ADC_SQR2     EQU  (_ADC1 + 0x34) ; ADC regular sequence register 2,
+ADC_SQR3     EQU  (_ADC1 + 0x38) ; ADC regular sequence register 3,
+ADC_SQR4     EQU  (_ADC1 + 0x3C) ; ADC regular sequence register 4,
+ADC_SQR5     EQU  (_ADC1 + 0x40) ; ADC regular sequence register 5,
+ADC_JSQR     EQU  (_ADC1 + 0x44) ; ADC injected sequence register,
+ADC_JDR1     EQU  (_ADC1 + 0x48) ; ADC injected data register 1,
+ADC_JDR2     EQU  (_ADC1 + 0x4C) ; ADC injected data register 2,
+ADC_JDR3     EQU  (_ADC1 + 0x50) ; ADC injected data register 3,
+ADC_JDR4     EQU  (_ADC1 + 0x54) ; ADC injected data register 4,
+ADC_DR       EQU  (_ADC1 + 0x58) ; ADC regular data register,
+ADC_SMPR0    EQU  (_ADC1 + 0x5C) ; ADC sample time register 0,
+
+
+
+;****************************************************************************
+;*
+;*                       BIT MASKS AND DEFINITIONS
+;*
+;****************************************************************************
+
 
 ;*******************  Bit definition for ADC_SR register  *******************
 ADC_SR_AWD                       EQU  0x00000001        ; Analog watchdog flag
