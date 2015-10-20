@@ -16,17 +16,20 @@
 ;*
 ;****************************************************************************
 
-; FSMC
-_FSMC_B1        EQU  (_FSMC + 0x0000) ; FSMC Bank1 registers base address
-_FSMC_B1E       EQU  (_FSMC + 0x0104) ; FSMC Bank1E registers base address
+FSMC_BCR1        EQU  (_FSCM + 0x0000) ; SRAM/NOR-Flash chip-select control registers
+FSMC_BCR2        EQU  (_FSCM + 0x0008) ;
+FSMC_BCR3        EQU  (_FSCM + 0x0010) ;
+FSMC_BCR4        EQU  (_FSCM + 0x0018) ;
 
-; Bank 1
-FSMC_B1_BTCR    EQU  (_FSMC_B1 + 0x00) ; NOR/PSRAM chip-select control register(BCR) and chip-select timing register(BTR),
+FSMC_BTR1        EQU  (_FSCM + 0x0004) ; SRAM/NOR-Flash chip-select timing registers
+FSMC_BTR2        EQU  (_FSCM + 0x000C) ;
+FSMC_BTR3        EQU  (_FSCM + 0x0014) ;
+FSMC_BTR4        EQU  (_FSCM + 0x001C) ;
 
-; Bank 2
-FSMC_B1E_BWTR   EQU  (_FSMC_B1E + 0x104) ; NOR/PSRAM write timing registers,
-
-; TODO missing some registers
+FSMC_BWTR1       EQU  (_FSCM + 0x0104) ; SRAM/NOR-Flash write timing registers
+FSMC_BWTR2       EQU  (_FSCM + 0x010C) ;
+FSMC_BWTR3       EQU  (_FSCM + 0x0114) ;
+FSMC_BWTR4       EQU  (_FSCM + 0x011C) ;
 
 
 ;****************************************************************************
