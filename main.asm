@@ -85,22 +85,25 @@ SysTick_Handler
 __main
 		EXPORT	__main                             ; Export the address to startup script
 				ENTRY                              ; Marks the program entry point (shouldnt be here)
-LOOP
-				; blink the other led slowly
 
-				; (using bit-banding)
-				LDR		R0, =BB_GPIOC_ODR_8
-				LDR		R1, [R0]
-				EOR		R1, R1, #1
+
+LOOP                                               ; Main loop
+				; turn LED on
+				LDR		R0, =BB_GPIOC_ODR_8        ; bit-banding address
+				MOV		R1, #1
 				STR		R1, [R0]
 
-				; (writing the entire register) - can cause race condition with SysTick interrupt
-;				LDR		R0, =GPIOC_ODR
-;				LDR		R1, [R0]
-;				EOR		R1, R1, #GPIO8
-;				STR		R1, [R0]
+				; wait
+				MOV		R0, #40
+				BL		DELAY
 
-				MOV		R0, #50
+				; turn LED off
+				LDR		R0, =BB_GPIOC_ODR_8
+				MOV		R1, #0
+				STR		R1, [R0]
+
+				; wait
+				MOV		R0, #10
 				BL		DELAY
 
 				B		LOOP
