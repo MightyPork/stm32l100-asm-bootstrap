@@ -68,6 +68,7 @@ _COMP              EQU  (_APB1 + 0x7C00)           ; Analog Comparator base
 _RI                EQU  (_APB1 + 0x7C04)           ; Routing Interface base (analog pin connections)
 _OPAMP             EQU  (_APB1 + 0x7C5C)           ; OpAmp config base
 
+_USB               EQU  (_APB1 + 0x5C00)           ; USB registers base
 
 ; *** Peripheral Bus 2 devices ***
 
