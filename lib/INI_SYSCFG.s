@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_SYSCFG.S
+; SOUBOR : INI_SYSCFG.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro SYSCFG (EXTI routing atd.)

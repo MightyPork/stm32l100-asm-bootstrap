@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_WWDG.S
+; SOUBOR : INI_WWDG.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro WWDG

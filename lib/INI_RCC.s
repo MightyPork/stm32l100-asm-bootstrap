@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_RCC.S
+; SOUBOR : INI_RCC.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro RCC (nastaveni hodin)

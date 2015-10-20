@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_NVIC.S
+; SOUBOR : INI_NVIC.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro NVIC (system preruseni)

@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_ADC.S
+; SOUBOR : INI_ADC.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro ADC

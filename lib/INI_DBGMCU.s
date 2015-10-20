@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_DBGMCU.S
+; SOUBOR : INI_DBGMCU.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro DBGMCU (Debug MCU control)

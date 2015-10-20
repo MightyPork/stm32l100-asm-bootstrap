@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_DMA.S
+; SOUBOR : INI_DMA.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro DMA (Direct memory access)

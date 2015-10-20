@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_PWR.S
+; SOUBOR : INI_PWR.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro PWR (napajeni, sleep...)

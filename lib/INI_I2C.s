@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_I2C.S
+; SOUBOR : INI_I2C.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro I2C

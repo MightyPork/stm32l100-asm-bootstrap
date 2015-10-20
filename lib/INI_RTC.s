@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_RTC.S
+; SOUBOR : INI_RTC.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro RTC (obvod realneho casu)

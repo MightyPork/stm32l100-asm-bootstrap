@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_RI.S
+; SOUBOR : INI_RI.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro RI (analogove propojky)

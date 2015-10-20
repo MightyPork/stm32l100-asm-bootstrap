@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_SDIO.S
+; SOUBOR : INI_SDIO.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro SDIO

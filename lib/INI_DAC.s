@@ -1,5 +1,5 @@
 ;********************************************************************************
-; SOUBOR : INI_BITS_DAC.S
+; SOUBOR : INI_DAC.S
 ; AUTOR  : Petr Dousa, Ondrej Hruska
 ; DATUM  : 10/2015
 ; POPIS  : Bitove masky ridicich registru pro DAC (digitalne-analogovy prevodnik)
