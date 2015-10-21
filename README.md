@@ -1,93 +1,112 @@
-# Bootstrap projekt a asm knihovna pro STM32L100RC
+# Bootstrap project and an asm library for STM32L100
 
-Projekt je vyvíjen na [*Katedře měření ČVUT FEL v Praze*][measure] a bude sloužit pro předmět [NVS][nvs] (příp. [MMP][mmp]).
+[Česká verze](README.cz.md)
 
-- Ukázkový program je založený na starším kódu © Michal Tomáš, 2010.
-- Základ knihovny a projektu © Petr Douša, 2015.
-- Další úpravy knihovny, Makefile © Ondřej Hruška, 2015.
+## Project description
 
-Kód je volně šiřitelný za podmínky zachování hlaviček souborů.
+The project consists of a definition library for the STM32L100 ARM microcontroller.
 
+The library is in a large part converted from the device-specific CMSIS header files, other
+files are based on the datasheets.
 
-## Popis projektu
+The project also includes a simple "Hello World" program which demonstrates usage of the library
+by blinking the LEDs on your STM32L100 Discovery board.
 
-Jedná se o knihovnu definic adres registrů a bitů dle CMSIS a datasheetů spolu s ukázkovým programem,
-který knihovnu využívá (a demonstruje nastavení RCC a pinů).
-
-
-## Cílový hardware
-
-Projekt je určen pro procesor **STM32L100RC** v kitu **STM32L100 Discovery**, který se připojí přes USB.
+A startup script (startup_stm32l100xc.s) comes from the Keil device packages, and can also be
+found in the CMSIS.
 
 
-## Knihovna
+## Target hardware
 
-Assemblerová knihovna sestává ze sady souborů ve složce `lib/` a startup scriptu `startup_stm32l100xc.s` (ten pochází
-z instalace Keilu, dle hlavičky je přímo od ST).
+The project targets the STM32L100RC on the STM32L100C-DISCO Discovery development board. The kit
+is attached to the computer using a USB cable.
 
-Soubor `INI_REGS.s` obsahuje definice adres registrů, soubory `INI_BITS_*.s` pak bitové masky a hodnoty
-jednotlivých registrů.
 
-Soubor `INI_BB.s` poskutuje adresy pro bit-banding.
+## Library structure
 
-Soubory ze složky `lib/` je nutné naincludovat do hlavního programu, např.
+The assembler library is located in a `lib/` folder, and consists of multiple modules.
+
+To use any of the modules, first include `INI_BASE.s`, then the required modules (in any order).
+
+Example of the library usage:
 
 ```asm
-        ; Register addresses
-        GET        lib/INI_REGS.s
-        GET        lib/INI_BB.s    ; Must be included *after* INI_REGS!
+        ; Base file
+        GET        lib/INI_BASE.s
 
-        ; Bit presets
+        ; Registers and bit presets for the peripherals
         GET        lib/INI_BITS_GPIO.s
         GET        lib/INI_BITS_RCC.s
         GET        lib/INI_BITS_FLASH.s
 ```
 
-## Formátování
+## Code style
 
-Soubory jsou formátovány se šířkou tabulátoru 4 znaky, komentáře jsou anglicky nebo bez diakritiky.
+All comments are in English. Files are formatted with spaces, or tabs 4 spaces wide.
 
-Soubory mají Windowsové konce řádků, aby nebyl problém s Keilem (a většina lidí to bude používat pod Windows).
+All files should use Windows line endings for compatibility with Keil.
+
+## Development environment
+### Keil MDK-ARM (Windows)
+
+The library will work with any tool that supports the ARM assembler.
+
+Included are project files for **µVision MDK-ARM v.5** (Keil).
+
+### Working on Linux
+
+On Linux, you can run Keil in Wine (without hardware support), and also in Virtualbox
+(but with ST-Link v2 only).
+
+If you choose to use a more native "IDE" (read: vim, Sublime Text...), you can use the
+provided Makefile for compilation and flashing.
+
+First, though, you have to setup the compiler:
+
+1. Install Keil in `wine` (into `~/.wine`) - we'll be using the trial version of
+   the otherwise paid compiler, and for that we need the Keil license files.
+
+   If you are adventurous, you can try to use the Keil license files with the native Linux
+   version of the compiler.
+
+2. Check that the Makefile variable `WINEPREFIX` points to the folder with the Keil
+   compiler binaries. If you are using the linux versions of those, adjust your Makefile
+   accordingly.
+
+3. For a disassembler support, install `arm-none-eabi-binutils`. This is optional.
+
+4. Install the `stlink` package - drivers for communication with the development board.
+   This step is optional, if you don't need flashing.
 
 
-## Jak s projektem pracovat
-
-### Windows - Keil MDK-ARM
-
-Projekt je primárně určen pro **µVision MDK-ARM v.5**, asm soubory fungují i ve verzi 4 (ale projekt bude potřeba upravit).
-
-Keil je primárně pro Windows, pod Wine funguje, ale nedokáže přistupovat na ST-Link.
-
-Ve Vitualboxu funguje včetne ST-Linku, ovšem pouze s verzí 2.
+*Tip:* ArchLinuxu users can find both `stlink` and `arm-none-eabi-binutils` in the Community
+repository.
 
 
-### Linux
+### Using the ARM DS-5
 
-Kompilace a nahrávání probíhá pomocí Makefile v projektu.
+The "official" ARM IDE, DS-5, is really expensive, but there's a free "Community Edition".
 
-Napřed je potřeba nainstalovat následující software:
+The IDE is a customized Eclipse, so if you have some Eclipse experience, you're right at home.
 
-1. Pomocí `wine` nainstalovat Keil (do `~/.wine`) - z jeho složky se berou binutils a assembler, nejde je přesunout kvůli
-   licenčním souborům. Teoreticky by mohlo jít použít linuxové verze, pokud zjistíte jak nastavit, aby používaly licenční
-   soubory z Keilu (omezení na 32 kB).
+**The catch** is that this variant **can't compile anything** - not even assembler.
+The editor and the context-help manual viewer work perfectly, though.
 
-2. Zkontrolovat v Makefile, že proměnná `WINEPREFIX` obsahuje správnou cestu ke složce s exe soubory z Keilu, případně opravit.
-   Pokud používáte nativní linuxové verze těchto programů, upravte náležitě Makefile.
+There is some Makefile support, but I've found it rather pathetic. If you, however, install
+a terminal plugin into the IDE, you can conveniently run the Makefile tasks to compile and
+flash your program.
 
-3. Pro plnou funkčnost se hodí doinstalovat `arm-none-eabi-binutils`, ale není nutné - jen pro `make disasm`
+## Credits
 
-4. Dále je potřeba nainstalovat `stlink` pro komunikaci s deskou, linuxová verze je volně dostupná.
+This project is developed for educational purposes at the [Department of Measurement][measure] of the CTU in Prague. The project may be used in the [NVS][nvs] and [MMP][mmp] courses.
+
+- The example program is based on an old code by Michal Tomáš © 2010.
+- Base of the library extracted from CMSIS by Petr Douša © 2015.
+- Further library improvements, organisation and the Makefile © Ondřej Hruška, 2015.
+
+The library code is free to use in any educational and non-commercial projects, provided you retain the copyright notice and the file header files.
 
 
-*Tip:* Uživatelé ArchLinuxu vše najdou v oficiálních repozitářích.
-
-
-#### V čem editovat
-
-Jako editor lze použít Keil pod wine, libovolný textový editor nebo ARM IDE DS-5 *Community Edition* - bohužel nedovoluje
-nic kompilovat, ale má dobru podporu pro assembler a kontextovou nápovědu.
-
-DS-5 podporuje Makefile, ale není to nic extra - lepší `make` spouštět v terminálu.
 
 [measure]: http://measure.feld.cvut.cz/
 [nvs]: http://measure.feld.cvut.cz/vyuka/predmety/A4B38NVS
