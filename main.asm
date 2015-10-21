@@ -250,5 +250,5 @@ NO_HSI_RDY		LDR		R1, [R0]
 
 ;**************************************************************************************************
 
-				ALIGN                               ; Adds NOP if needed to complete a 32-bit word
-				END
+			ALIGN                               ; Adds NOP if needed to complete a 32-bit word
+			END
