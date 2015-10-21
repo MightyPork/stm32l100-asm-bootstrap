@@ -47,13 +47,20 @@ All comments are in English. Files are formatted with spaces, or tabs 4 spaces w
 All files should use Windows line endings for compatibility with Keil.
 
 ## Development environment
-### Keil MDK-ARM (Windows)
 
 The library will work with any tool that supports the ARM assembler.
 
+### Keil MDK-ARM (Windows)
+
 Included are project files for **µVision MDK-ARM v.5** (Keil).
 
-### Working on Linux
+You can obtain a trial copy of Keil MDK for free from their website (after filling in some fake
+contact info to "register"). There is a code size limitaiton (32 kB), but that's usually not a
+problem.
+
+If you're working on Windows, this is probably the best tool you can get.
+
+### Developing on Linux
 
 On Linux, you can run Keil in Wine (without hardware support), and also in Virtualbox
 (but with ST-Link v2 only).
