@@ -2,6 +2,7 @@
 ; FILE   : INI_SCB.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
+; DESCR  : Control registers and bit masks for SCB
 
 ;                          System Control Block (SCB)
 ;

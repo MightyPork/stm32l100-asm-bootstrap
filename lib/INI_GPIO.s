@@ -2,6 +2,7 @@
 ; FILE   : INI_GPIO.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
+; DESCR  : Control registers and bit masks for GPIO (ext. memory communication)
 ;
 ;                        General Purpose IOs (GPIO)
 ;

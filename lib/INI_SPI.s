@@ -2,7 +2,7 @@
 ; FILE   : INI_SPI.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro SPI
+; DESCR  : Control registers and bit masks for SPI
 ;
 ;                     Serial Peripheral Interface (SPI)
 ;

@@ -2,7 +2,7 @@
 ; FILE   : INI_DAC.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro DAC (digitalne-analogovy prevodnik)
+; DESCR  : Control registers and bit masks for DAC (digital-analog converter)
 ;
 ;                    Digital to Analog Converter (DAC)
 ;

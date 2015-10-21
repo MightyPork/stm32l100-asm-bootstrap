@@ -2,6 +2,7 @@
 ; FILE   : INI_SYSTICK.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
+; DESCR  : Control registers and bit masks for SysTick
 ;
 ;                           System Timer (SysTick)
 ;

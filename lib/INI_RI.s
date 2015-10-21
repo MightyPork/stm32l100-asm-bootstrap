@@ -2,7 +2,7 @@
 ; FILE   : INI_RI.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro RI (analogove propojky)
+; DESCR  : Control registers and bit masks for RI (analog input routing)
 ;
 ;                       Routing Interface (RI)
 ;

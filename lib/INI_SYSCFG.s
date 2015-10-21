@@ -2,7 +2,7 @@
 ; FILE   : INI_SYSCFG.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro SYSCFG (EXTI routing atd.)
+; DESCR  : Control registers and bit masks for SYSCFG (EXTI routing etc.)
 ;
 ;                       System Configuration (SYSCFG)
 ;

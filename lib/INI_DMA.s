@@ -2,7 +2,7 @@
 ; FILE   : INI_DMA.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro DMA (Direct memory access)
+; DESCR  : Control registers and bit masks for DMA (Direct memory access)
 ;
 ;                           DMA Controller (DMA)
 ;

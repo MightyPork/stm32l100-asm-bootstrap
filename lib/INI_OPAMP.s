@@ -2,7 +2,7 @@
 ; FILE   : INI_OPAMP.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro OPAMP
+; DESCR  : Control registers and bit masks for OPAMP
 ;
 ;                         Operational Amplifier (OPAMP)
 ;

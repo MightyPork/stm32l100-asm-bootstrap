@@ -2,7 +2,7 @@
 ; FILE   : INI_FSMC.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro FSMC (ext. memory communication)
+; DESCR  : Control registers and bit masks for FSMC (ext. memory communication)
 ;
 ;                       Flexible Static Memory Controller
 ;

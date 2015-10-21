@@ -2,7 +2,7 @@
 ; FILE   : INI_EXTI.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro EXTI (ext. interrupt)
+; DESCR  : Control registers and bit masks for EXTI (ext. interrupt)
 ;
 ;                  External Interrupt/Event Controller (EXTI)
 ;

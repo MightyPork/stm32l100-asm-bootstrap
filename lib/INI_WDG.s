@@ -2,7 +2,7 @@
 ; FILE   : INI_WWDG.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro WWDG
+; DESCR  : Control registers and bit masks for WWDG
 ;
 ;                         Window WATCHDOG (WWDG)
 ;

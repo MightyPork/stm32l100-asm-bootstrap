@@ -2,7 +2,7 @@
 ; FILE   : INI_I2C.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro I2C
+; DESCR  : Control registers and bit masks for I2C
 ;
 ;                   Inter-integrated Circuit Interface (I2C)
 ;

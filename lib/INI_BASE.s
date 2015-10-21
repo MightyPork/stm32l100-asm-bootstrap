@@ -2,8 +2,8 @@
 ; FILE   : INI_BASE.S
 ; AUTHOR : Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Zakladni soubor knihovny. Musi byt includovat pred vsemi ostatnimi.
-;          Soubor definuje rozdeleni adresniho prostoru a adresy periferii.
+; DESCR  : Base library file. This file must be included before any other library
+;          files. This file defines memory map and base addresses of peripherals.
 ;
 ; Part of an assembler library for STM32L100, based on the STM32 CMSIS.
 ; Developed for educational purposes at the Department of Measure of CTU in Prague.

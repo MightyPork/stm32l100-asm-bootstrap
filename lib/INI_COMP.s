@@ -2,7 +2,7 @@
 ; FILE   : INI_COMP.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro COMP (analogovy komparator)
+; DESCR  : Control registers and bit masks for COMP (analog comparator)
 ;
 ;                      Analog Comparators (COMP)
 ;

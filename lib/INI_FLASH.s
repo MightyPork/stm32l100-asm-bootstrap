@@ -2,7 +2,7 @@
 ; FILE   : INI_FLASH.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro FLASH
+; DESCR  : Control registers and bit masks for FLASH control
 ;
 ;                FLASH, DATA EEPROM and Option Bytes Registers
 ;                        (FLASH, DATA_EEPROM, OB)

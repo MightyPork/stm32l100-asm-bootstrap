@@ -2,7 +2,7 @@
 ; FILE   : INI_NVIC.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro NVIC (system preruseni)
+; DESCR  : Control registers and bit masks for NVIC (interrupt vector controller)
 ;
 ;               Nested Vectored Interrupt Controller (NVIC)
 ;

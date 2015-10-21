@@ -2,7 +2,7 @@
 ; FILE   : INI_PWR.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro PWR (napajeni, sleep...)
+; DESCR  : Control registers and bit masks for PWR (power control, sleep)
 ;
 ;                          Power Control (PWR)
 ;

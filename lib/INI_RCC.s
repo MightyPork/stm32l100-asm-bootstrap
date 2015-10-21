@@ -2,7 +2,7 @@
 ; FILE   : INI_RCC.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro RCC (nastaveni hodin)
+; DESCR  : Control registers and bit masks for RCC (clock sources config)
 ;
 ;                      Reset and Clock Control (RCC)
 ;

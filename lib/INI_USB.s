@@ -2,7 +2,7 @@
 ; FILE   : INI_USB.S
 ; AUTHOR : Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro USB
+; DESCR  : Control registers and bit masks for USB
 ;
 ;                     Universal Serial Bus (USB)
 ;

@@ -2,7 +2,7 @@
 ; FILE   : INI_CRC.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro CRC (checksum generator)
+; DESCR  : Control registers and bit masks for CRC (checksum generator)
 ;
 ;                       CRC calculation unit (CRC)
 ;

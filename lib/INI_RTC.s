@@ -2,7 +2,7 @@
 ; FILE   : INI_RTC.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro RTC (obvod realneho casu)
+; DESCR  : Control registers and bit masks for RTC (real time clock circuit)
 ;
 ;                           Real-Time Clock (RTC)
 ;

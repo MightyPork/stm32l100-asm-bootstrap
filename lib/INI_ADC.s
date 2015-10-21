@@ -2,7 +2,7 @@
 ; FILE   : INI_ADC.S
 ; AUTHOR : Petr Dousa, Ondrej Hruska
 ; DATE   : 10/2015
-; DESCR  : Bitove masky ridicich registru pro ADC
+; DESCR  : Control registers and bit masks for ADC
 ;
 ;                      Analog to Digital Converter (ADC)
 ;
