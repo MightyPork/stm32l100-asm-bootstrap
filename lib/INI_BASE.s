@@ -1,11 +1,13 @@
 ;********************************************************************************
-; SOUBOR : INI_BASE.S
-; AUTOR  : Ondrej Hruska
-; DATUM  : 10/2015
-; POPIS  : Zakladni soubor knihovny. Musi byt includovat pred vsemi ostatnimi.
+; FILE   : INI_BASE.S
+; AUTHOR : Ondrej Hruska
+; DATE   : 10/2015
+; DESCR  : Zakladni soubor knihovny. Musi byt includovat pred vsemi ostatnimi.
 ;          Soubor definuje rozdeleni adresniho prostoru a adresy periferii.
 ;
-; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
+; Part of an assembler library for STM32L100, based on the STM32 CMSIS.
+; Developed for educational purposes at the Department of Measure of CTU in Prague.
+; See the LICENSE file for detailed terms of use.
 ;********************************************************************************
 
 

@@ -1,11 +1,13 @@
 ;****************************************************************************
-; SOUBOR : INI_SCB.S
-; AUTOR  : Petr Dousa, Ondrej Hruska
-; DATUM  : 10/2015
+; FILE   : INI_SCB.S
+; AUTHOR : Petr Dousa, Ondrej Hruska
+; DATE   : 10/2015
 
 ;                          System Control Block (SCB)
 ;
-; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
+; Part of an assembler library for STM32L100, based on the STM32 CMSIS.
+; Developed for educational purposes at the Department of Measure of CTU in Prague.
+; See the LICENSE file for detailed terms of use.
 ;****************************************************************************
 
 

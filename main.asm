@@ -1,11 +1,10 @@
 ;***************************************************************************************************
 ;*
-;* Misto            : CVUT FEL, Katedra Mereni
-;* Prednasejici     : Doc. Ing. Jan Fischer,CSc.
-;* Predmet          : A4M38AVS, A4B38NVS
-;* Vyvojovy Kit     : STM32L100 DISCOVERY (STM32L100RC)
-;* Datum            : 12/2010, 10/2015
-;* Autor            : Michal TOMAS (2010), Ondrej Hruska (2015)
+;* Place            : CVUT FEL, Katedra Mereni
+;* Lecturer         : Doc. Ing. Jan Fischer,CSc.
+;* Subject          : A4M38AVS, A4B38NVS
+;* Development kit  : STM32L100 DISCOVERY (STM32L100RC)
+;* Authors          : Michal TOMAS (2010), Ondrej Hruska (2015)
 ;*
 ;***************************************************************************************************
 
@@ -14,25 +13,25 @@
 ;* Include library files
 ;***************************************************************************************************
 
-		; Base library file
-		GET		lib/INI_BASE.s
+			; Base library file
+			GET		lib/INI_BASE.s
 
-		; Peripheral modules
-		GET		lib/INI_GPIO.s
-		GET		lib/INI_SYSTICK.s
-		GET		lib/INI_RCC.s
-		GET		lib/INI_FLASH.s
+			; Peripheral modules
+			GET		lib/INI_GPIO.s
+			GET		lib/INI_SYSTICK.s
+			GET		lib/INI_RCC.s
+			GET		lib/INI_FLASH.s
 
 
 ;***************************************************************************************************
 ;* Start program AREA and pass compiler flags to the startup script...
 ;***************************************************************************************************
 
-		AREA    MAIN, CODE, READONLY
+			AREA    MAIN, CODE, READONLY
 
 		; This is a compiler flag imported by the startup script.
 __use_two_region_memory
-		EXPORT __use_two_region_memory
+			EXPORT __use_two_region_memory
 
 
 ;***************************************************************************************************
@@ -41,13 +40,14 @@ __use_two_region_memory
 ;* Called by the startup script before calling __main
 ;***************************************************************************************************
 
-SystemInit
-		EXPORT	SystemInit                         ; Export the address to startup script
+SystemInit	PROC
+			EXPORT	SystemInit                      ; Export the address to startup script
 				PUSH	{LR}
-				BL		RCC_CNF                    ; Configure clock sources
-				BL		GPIO_CNF                   ; Configure GPIO power and pin settings
-				BL		SYSTICK_CNF                ; Configure SysTick timer
+				BL		RCC_CNF                     ; Configure clock sources
+				BL		GPIO_CNF                    ; Configure GPIO power and pin settings
+				BL		SYSTICK_CNF                 ; Configure SysTick timer
 				POP		{PC}
+			ENDP
 
 
 
@@ -55,8 +55,8 @@ SystemInit
 ;* Interrupt handlers...
 ;***************************************************************************************************
 
-SysTick_Handler
-		EXPORT SysTick_Handler                     ; Export the address to startup script (replaces a WEAK stub)
+SysTick_Handler PROC
+			EXPORT SysTick_Handler                  ; Export the address to startup script (replaces a WEAK stub)
 				PUSH	{LR}
 
 				; Toggle the PC8 LED (bit-banding access)
@@ -72,6 +72,7 @@ SysTick_Handler
 ;				STR		R1, [R0]
 
 				POP		{PC}
+			ENDP
 
 
 
@@ -82,14 +83,11 @@ SysTick_Handler
 ;* __main is called only once, and does not return!
 ;***************************************************************************************************
 
-__main
-		EXPORT	__main                             ; Export the address to startup script
-				ENTRY                              ; Marks the program entry point (shouldnt be here)
-
-
-LOOP                                               ; Main loop
+__main		PROC
+			EXPORT	__main                          ; Export the address to startup script
+LOOP                                           		; Main loop
 				; turn LED on
-				LDR		R0, =BB_GPIOC_ODR_8        ; bit-banding address
+				LDR		R0, =BB_GPIOC_ODR_8         ; bit-banding address
 				MOV		R1, #1
 				STR		R1, [R0]
 
@@ -107,6 +105,7 @@ LOOP                                               ; Main loop
 				BL		DELAY
 
 				B		LOOP
+			ENDP
 
 
 
@@ -116,11 +115,11 @@ LOOP                                               ; Main loop
 ;* Sets PC08 and PC09 as outputs, PA0 as input.
 ;**************************************************************************************************
 
-GPIO_CNF
+GPIO_CNF	PROC
 				PUSH	{R0,R1,LR}
 
 				; Enable GPIO peripheral timing
-				LDR		R0, =RCC_AHBENR            ; Advanced High-speed Bus ENable Register
+				LDR		R0, =RCC_AHBENR             ; Advanced High-speed Bus ENable Register
 				LDR		R1, [R0]
 				LDR		R2, =(RCC_AHBENR_GPIOAEN :OR: RCC_AHBENR_GPIOCEN)
 				ORR		R1, R1, R2
@@ -129,9 +128,9 @@ GPIO_CNF
 				; Output pins C8, C9
 				LDR		R0, =GPIOC_MODER
 				LDR		R1, [R0]
-				                                   ; Clear the area we'll write to
+													; Clear the area we'll write to
 				BIC		R1,R1, #(GPIO_MODER_8 :OR: GPIO_MODER_9)
-				                                   ; Write "OUTPUT" pattern (0x5555...) masked to the two bits
+													; Write "OUTPUT" pattern (0x5555...) masked to the two bits
 				ORR		R1,R1, #(GPIO_MODER_8 :OR: GPIO_MODER_9) & GPIO_MODER_OUTPUT
 				STR		R1, [R0]
 
@@ -139,10 +138,12 @@ GPIO_CNF
 				LDR		R0, =GPIOA_MODER
 				LDR		R1, [R0]
 				BIC		R1,R1, #GPIO_MODER_0
-				ORR		R1,R1, #(GPIO_MODER_0 & GPIO_MODER_INPUT); Write the "input" pattern into the bit config area
+													; Write the "input" pattern into the bit config area
+				ORR		R1,R1, #(GPIO_MODER_0 & GPIO_MODER_INPUT)
 				STR		R1, [R0]
 
 				POP		{R0,R1,PC}
+			ENDP
 
 
 
@@ -152,7 +153,7 @@ GPIO_CNF
 ;* Configures SysTick to fire a SysTick interrupt at 1 Hz
 ;**************************************************************************************************
 
-SYSTICK_CNF
+SYSTICK_CNF	PROC
 				PUSH	{R0, R1, LR}
 
 				; Use the core clock (undivided)
@@ -176,6 +177,7 @@ SYSTICK_CNF
 				STR		R1, [R0]
 
 				POP		{R0, R1, PC}
+			ENDP
 
 
 
@@ -185,30 +187,31 @@ SYSTICK_CNF
 ;* Inputs:	R0 = number of loop cycles
 ;**************************************************************************************************
 
-DELAY
-				PUSH	{R2, LR}                   ; Push the changed registers & link register
+DELAY		PROC
+				PUSH	{R2, LR}                    ; Push the changed registers & link register
 
 WAIT_OUTER		; Outer loop
-				LDR		R2, =40000                 ; Length of inner loop
+				LDR		R2, =40000                  ; Length of inner loop
 
 				; Inner loop
-WAIT_INNER		SUBS	R2, R2, #1                 ; Decrement INNER loop counter
-				BNE		WAIT_INNER                 ; Continue the loop if not done
+WAIT_INNER		SUBS	R2, R2, #1                  ; Decrement INNER loop counter
+				BNE		WAIT_INNER                  ; Continue the loop if not done
 
-				SUBS	R0, R0, #1                 ; Decrement OUTER loop counter
-				BNE		WAIT_OUTER                 ; Continue the loop if not done
+				SUBS	R0, R0, #1                  ; Decrement OUTER loop counter
+				BNE		WAIT_OUTER                  ; Continue the loop if not done
 
-				POP		{R2, PC}                   ; Pop & return
+				POP		{R2, PC}                    ; Pop & return
+			ENDP
 
 
 
 ;***************************************************************************************************
-;* Konfigurace systemovych hodin a hodin periferii
+;* Clock configuration
 ;*
-;* Nastavi hodiny na HSI 16 MHz
+;* Set clock speed to 16 MHz
 ;**************************************************************************************************
 
-RCC_CNF
+RCC_CNF		PROC
 				PUSH	{R0, R1, LR}
 
 				; Flash timing configuration
@@ -221,26 +224,14 @@ RCC_CNF
 				ORR		R1, R1, #(FLASH_ACR_PRFTEN :OR: FLASH_ACR_LATENCY)
 				STR		R1, [R0]
 
-				; Nastavit hodinove vstupy
-				LDR		R0, =RCC_CR
-
-				; Additional RCC_CR config
-;				LDR		R1, [R0]
-;				LDR		R2, =RCC_CR_RTCPRE ; clear RTC prescaler
-;				BIC		R1, R1, R2
-;				; HseByp allows to use external clock source with HSEON
-;				LDR		R2, =(RCC_CR_RTCPRE_DIV2 :OR: RCC_CR_HSEBYP)
-;				ORR		R1, R1, R2
-;				STR		R1, [R0]
-
 				; Power on HSI (runs from MSI on start)
 
+				LDR		R0, =RCC_CR
 				LDR		R1, [R0]
 				ORR		R1, R1, #RCC_CR_HSION
 				STR		R1, [R0]
 
 				; Wait for HSIRDY
-				ALIGN
 NO_HSI_RDY		LDR		R1, [R0]
 				TST		R1, #RCC_CR_HSIRDY
 				BEQ		NO_HSI_RDY
@@ -254,9 +245,10 @@ NO_HSI_RDY		LDR		R1, [R0]
 				STR		R1, [R0]
 
 				POP		{R0, R1, PC}
+			ENDP
 
 
 ;**************************************************************************************************
 
-				ALIGN                              ; Adds NOP if needed to complete a 32-bit word
+				ALIGN                               ; Adds NOP if needed to complete a 32-bit word
 				END

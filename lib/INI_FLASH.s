@@ -1,13 +1,15 @@
 ;********************************************************************************
-; SOUBOR : INI_FLASH.S
-; AUTOR  : Petr Dousa, Ondrej Hruska
-; DATUM  : 10/2015
-; POPIS  : Bitove masky ridicich registru pro FLASH
+; FILE   : INI_FLASH.S
+; AUTHOR : Petr Dousa, Ondrej Hruska
+; DATE   : 10/2015
+; DESCR  : Bitove masky ridicich registru pro FLASH
 ;
 ;                FLASH, DATA EEPROM and Option Bytes Registers
 ;                        (FLASH, DATA_EEPROM, OB)
 ;
-; Toto je soucast knihovny pro STM32L100 vyvijene na Katedre mereni FEL CVUT.
+; Part of an assembler library for STM32L100, based on the STM32 CMSIS.
+; Developed for educational purposes at the Department of Measure of CTU in Prague.
+; See the LICENSE file for detailed terms of use.
 ;********************************************************************************
 
 
